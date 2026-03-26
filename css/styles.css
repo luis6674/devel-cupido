@@ -651,6 +651,11 @@ html, body {
   color: #fff;
   font-weight: 600;
 }
+#win-calendar .window-body {
+  height: auto;
+  overflow-y: visible;
+}
+
 .cal-has-event { cursor: pointer; }
 .cal-has-event:hover { background: rgba(102,126,234,0.1); }
 .cal-event-dot {
