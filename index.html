@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Desktop</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- jQuery + jQuery UI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<!-- MENUBAR -->
+<div id="menubar">
+  <div class="left">
+    <span class="apple">&#63743;</span>
+    <span>My Desktop</span>
+    <span style="opacity:0.5">File</span>
+    <span style="opacity:0.5">View</span>
+    <span style="opacity:0.5">Go</span>
+  </div>
+  <div class="right">
+    <span>🔋 100%</span>
+    <span>📶</span>
+    <span id="clock">--:--</span>
+  </div>
+</div>
+
+<!-- DESKTOP ICONS -->
+<div id="desktop">
+  <div id="icon-grid">
+    <div class="desktop-icon" data-window="videos">
+      <div class="icon-img">🎬</div>
+      <div class="icon-label">Videos</div>
+    </div>
+    <div class="desktop-icon" data-window="pictures">
+      <div class="icon-img">🖼️</div>
+      <div class="icon-label">Pictures</div>
+    </div>
+    <div class="desktop-icon" data-window="music">
+      <div class="icon-img">🎵</div>
+      <div class="icon-label">Music</div>
+    </div>
+    <div class="desktop-icon" data-window="documents">
+      <div class="icon-img">📁</div>
+      <div class="icon-label">Documents</div>
+    </div>
+    <div class="desktop-icon" data-window="recycle">
+      <div class="icon-img">🗑️</div>
+      <div class="icon-label">Recycle Bin</div>
+    </div>
+  </div>
+
+  <!-- DOCK -->
+  <div id="dock">
+    <div id="dock-inner">
+      <div class="dock-item" data-window="pictures">
+        <div class="dock-icon">🖼️</div>
+        <div class="dock-dot"></div>
+        <div class="dock-tooltip">Pictures</div>
+      </div>
+      <div class="dock-item" data-window="music">
+        <div class="dock-icon">🎵</div>
+        <div class="dock-dot"></div>
+        <div class="dock-tooltip">Music</div>
+      </div>
+      <div class="dock-item" data-window="videos">
+        <div class="dock-icon">🎬</div>
+        <div class="dock-dot"></div>
+        <div class="dock-tooltip">Videos</div>
+      </div>
+      <div class="dock-item" data-window="notepad">
+        <div class="dock-icon">📝</div>
+        <div class="dock-dot"></div>
+        <div class="dock-tooltip">Notepad</div>
+      </div>
+      <div class="dock-item" data-window="audioplayer">
+        <div class="dock-icon">🎧</div>
+        <div class="dock-dot"></div>
+        <div class="dock-tooltip">Audio Player</div>
+      </div>
+      <div class="dock-item" data-window="documents">
+        <div class="dock-icon">📁</div>
+        <div class="dock-dot"></div>
+        <div class="dock-tooltip">Documents</div>
+      </div>
+      <div class="dock-item" data-window="recycle">
+        <div class="dock-icon">🗑️</div>
+        <div class="dock-dot"></div>
+        <div class="dock-tooltip">Recycle Bin</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ WINDOWS ══════════════════ -->
+
+<!-- VIDEOS -->
+<div class="mac-window" id="win-videos" style="top:80px;left:120px;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-videos">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Videos</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body">
+    <div class="video-grid">
+      <div class="video-thumb" data-vid="FUJ5mPoFyxg" data-caption="Video 1">
+        <img src="https://img.youtube.com/vi/FUJ5mPoFyxg/hqdefault.jpg" alt="Video 1" loading="lazy">
+        <div class="vid-play">▶</div>
+        <div class="vid-label">Video 1</div>
+      </div>
+      <div class="video-thumb" data-vid="onX4biQE2CM" data-caption="Video 2">
+        <img src="https://img.youtube.com/vi/onX4biQE2CM/hqdefault.jpg" alt="Video 2" loading="lazy">
+        <div class="vid-play">▶</div>
+        <div class="vid-label">Video 2</div>
+      </div>
+      <div class="video-thumb" data-vid="qBBAFq8XKdk" data-caption="Video 3">
+        <img src="https://img.youtube.com/vi/qBBAFq8XKdk/hqdefault.jpg" alt="Video 3" loading="lazy">
+        <div class="vid-play">▶</div>
+        <div class="vid-label">Video 3</div>
+      </div>
+      <div class="video-thumb" data-vid="dQ_3kff0zfs" data-caption="Video 4">
+        <img src="https://img.youtube.com/vi/dQ_3kff0zfs/hqdefault.jpg" alt="Video 4" loading="lazy">
+        <div class="vid-play">▶</div>
+        <div class="vid-label">Video 4</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PICTURES -->
+<div class="mac-window" id="win-pictures" style="top:100px;left:160px;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-pictures">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Pictures</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body">
+    <div class="picture-grid">
+      <div class="picture-thumb" data-src="images/pictures/sunset_beach.jpg" data-caption="sunset_beach.jpg">
+        <img src="images/pictures/sunset_beach.jpg" alt="Sunset Beach" loading="lazy">
+        <div class="pic-label">sunset_beach.jpg</div>
+      </div>
+      <div class="picture-thumb" data-src="images/pictures/mountain_trail.jpg" data-caption="mountain_trail.jpg">
+        <img src="images/pictures/mountain_trail.jpg" alt="Mountain Trail" loading="lazy">
+        <div class="pic-label">mountain_trail.jpg</div>
+      </div>
+      <div class="picture-thumb" data-src="images/pictures/portrait_spring.jpg" data-caption="portrait_spring.jpg">
+        <img src="images/pictures/portrait_spring.jpg" alt="Portrait Spring" loading="lazy">
+        <div class="pic-label">portrait_spring.jpg</div>
+      </div>
+      <div class="picture-thumb" data-src="images/pictures/street_photography.jpg" data-caption="street_photography.jpg">
+        <img src="images/pictures/street_photography.jpg" alt="Street Photography" loading="lazy">
+        <div class="pic-label">street_photography.jpg</div>
+      </div>
+      <div class="picture-thumb" data-src="images/pictures/forest_fog.jpg" data-caption="forest_fog.jpg">
+        <img src="images/pictures/forest_fog.jpg" alt="Forest Fog" loading="lazy">
+        <div class="pic-label">forest_fog.jpg</div>
+      </div>
+      <div class="picture-thumb" data-src="images/pictures/city_night.jpg" data-caption="city_night.jpg">
+        <img src="images/pictures/city_night.jpg" alt="City Night" loading="lazy">
+        <div class="pic-label">city_night.jpg</div>
+      </div>
+      <div class="picture-thumb" data-src="images/pictures/wildflowers.jpg" data-caption="wildflowers.jpg">
+        <img src="images/pictures/wildflowers.jpg" alt="Wildflowers" loading="lazy">
+        <div class="pic-label">wildflowers.jpg</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lightbox-close">✕</button>
+  <button id="lightbox-prev">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption"></div>
+  <button id="lightbox-next">›</button>
+</div>
+
+<!-- DOCS LOCK -->
+<div id="docs-lock">
+  <div id="docs-lock-box">
+    <div class="lock-icon">🔒</div>
+    <div class="lock-title">Documents</div>
+    <div class="lock-subtitle">This folder is password protected</div>
+    <input type="password" id="docs-password" placeholder="Enter password" autocomplete="off">
+    <div id="docs-error"></div>
+    <div class="lock-buttons">
+      <button id="docs-cancel">Cancel</button>
+      <button id="docs-submit">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<!-- YOUTUBE VIEWER -->
+<div id="yt-viewer">
+  <button id="yt-close">✕</button>
+  <div id="yt-container"><div id="yt-embed"></div></div>
+  <div id="yt-caption"></div>
+</div>
+
+<!-- MUSIC -->
+<div class="mac-window" id="win-music" style="top:120px;left:200px;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-music">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Music</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body">
+    <div class="file-list" id="music-list">
+      <div class="file-item music-file" data-src="audio/morning_light.wav" data-title="Morning Light" data-artist="Cupido"><span class="file-icon">🎵</span> morning_light.wav <span class="file-meta">310 KB</span></div>
+      <div class="file-item music-file" data-src="audio/evening_calm.wav" data-title="Evening Calm" data-artist="Cupido"><span class="file-icon">🎵</span> evening_calm.wav <span class="file-meta">516 KB</span></div>
+      <div class="file-item music-file" data-src="audio/lo_fi_groove.wav" data-title="Lo-Fi Groove" data-artist="Cupido"><span class="file-icon">🎵</span> lo_fi_groove.wav <span class="file-meta">314 KB</span></div>
+      <div class="file-item music-file" data-src="audio/soft_piano.wav" data-title="Soft Piano" data-artist="Cupido"><span class="file-icon">🎵</span> soft_piano.wav <span class="file-meta">689 KB</span></div>
+      <div class="file-item music-file" data-src="audio/acoustic_strum.wav" data-title="Acoustic Strum" data-artist="Cupido"><span class="file-icon">🎵</span> acoustic_strum.wav <span class="file-meta">435 KB</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DOCUMENTS -->
+<div class="mac-window" id="win-documents" style="top:140px;left:240px;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-documents">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Documents</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body">
+    <div class="file-list">
+      <div class="file-item"><span class="file-icon">📄</span> resume_2025.pdf <span class="file-meta">420 KB</span></div>
+      <div class="file-item"><span class="file-icon">📝</span> notes_january.txt <span class="file-meta">12 KB</span></div>
+      <div class="file-item"><span class="file-icon">📊</span> budget_tracker.xlsx <span class="file-meta">88 KB</span></div>
+      <div class="file-item"><span class="file-icon">📄</span> project_brief.docx <span class="file-meta">56 KB</span></div>
+      <div class="file-item"><span class="file-icon">📝</span> ideas_brainstorm.md <span class="file-meta">8 KB</span></div>
+      <div class="file-item"><span class="file-icon">📊</span> reading_list.txt <span class="file-meta">4 KB</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- RECYCLE BIN -->
+<div class="mac-window" id="win-recycle" style="top:160px;left:280px;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-recycle">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Recycle Bin</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body">
+    <div class="recycle-empty">
+      <div class="big-icon">🗑️</div>
+      <div>Recycle Bin is empty</div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTEPAD -->
+<div class="mac-window" id="win-notepad" style="top:150px;left:300px;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-notepad">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Notepad</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body" style="padding:12px;">
+    <textarea class="notepad-area" placeholder="Start typing your notes here..."></textarea>
+  </div>
+</div>
+
+<!-- AUDIO PLAYER -->
+<div class="mac-window" id="win-audioplayer" style="top:170px;left:340px;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-audioplayer">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Audio Player</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body">
+    <div class="audio-player">
+      <div class="album-art" id="album-art">🎵</div>
+      <div class="track-info">
+        <div class="track-title" id="track-title">Select a track</div>
+        <div class="track-artist" id="track-artist">—</div>
+      </div>
+      <div style="width:100%">
+        <div class="progress-bar" id="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="time-row"><span id="time-cur">0:00</span><span id="time-dur">0:00</span></div>
+      </div>
+      <div class="controls">
+        <button class="ctrl-btn" id="prev-btn" title="Previous">⏮</button>
+        <button class="ctrl-btn play" id="play-btn" title="Play/Pause">▶</button>
+        <button class="ctrl-btn" id="next-btn" title="Next">⏭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+</body>
+</html>
