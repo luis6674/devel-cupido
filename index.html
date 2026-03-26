@@ -56,6 +56,10 @@
       <div class="icon-img">🗑️</div>
       <div class="icon-label">Recycle Bin</div>
     </div>
+    <div class="desktop-icon" data-window="calendar">
+      <div class="icon-img">📅</div>
+      <div class="icon-label">Calendar</div>
+    </div>
   </div>
 
   <!-- DOCK -->
@@ -95,6 +99,11 @@
         <div class="dock-icon">🗑️</div>
         <div class="dock-dot"></div>
         <div class="dock-tooltip">Recycle Bin</div>
+      </div>
+      <div class="dock-item" data-window="calendar">
+        <div class="dock-icon">📅</div>
+        <div class="dock-dot"></div>
+        <div class="dock-tooltip">Calendar</div>
       </div>
     </div>
   </div>
@@ -323,6 +332,38 @@
         <button class="ctrl-btn" id="next-btn" title="Next">⏭</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="mac-window" id="win-calendar" style="top:90px;left:150px;width:clamp(300px,36vw,420px);height:auto;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-calendar">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Calendar</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body" style="padding:16px;">
+    <div class="cal-nav">
+      <button class="cal-nav-btn" id="cal-prev">‹</button>
+      <span id="cal-month-label"></span>
+      <button class="cal-nav-btn" id="cal-next">›</button>
+    </div>
+    <div id="cal-grid"></div>
+  </div>
+</div>
+
+<!-- CALENDAR EVENT MODAL -->
+<div id="cal-event-modal">
+  <div id="cal-event-box">
+    <div class="cal-event-icon">📅</div>
+    <div id="cal-event-date"></div>
+    <div id="cal-event-title"></div>
+    <div id="cal-event-desc"></div>
+    <button id="cal-event-close">Cerrar</button>
   </div>
 </div>
 

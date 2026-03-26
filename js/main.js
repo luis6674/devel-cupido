@@ -270,4 +270,98 @@ $(function () {
     audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
   });
 
+  // ── Calendar ──
+  const calEvents = {
+    '2026-04-09': {
+      title: 'Lanzamiento de la web!',
+      desc:  'Lanzamos la nueva web de Cupido en la que habrá varias novedades en los próximos días!'
+    }
+  };
+
+  const CAL_MONTHS = ['January','February','March','April','May','June',
+                      'July','August','September','October','November','December'];
+  const CAL_DAYS   = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+
+  let calYear, calMonth;
+
+  function renderCalendar() {
+    $('#cal-month-label').text(CAL_MONTHS[calMonth] + ' ' + calYear);
+
+    const $grid = $('#cal-grid').empty();
+
+    CAL_DAYS.forEach(function (d) {
+      $grid.append('<div class="cal-day-header">' + d + '</div>');
+    });
+
+    const firstDay    = new Date(calYear, calMonth, 1).getDay();
+    const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+    const now         = new Date();
+    const todayStr    = now.getFullYear() + '-' +
+                        String(now.getMonth() + 1).padStart(2, '0') + '-' +
+                        String(now.getDate()).padStart(2, '0');
+
+    for (let i = 0; i < firstDay; i++) {
+      $grid.append('<div class="cal-day cal-day-empty"></div>');
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const dateStr  = calYear + '-' + String(calMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+      const isToday  = dateStr === todayStr;
+      const hasEvent = !!calEvents[dateStr];
+
+      let cls = 'cal-day';
+      if (isToday)  cls += ' cal-today';
+      if (hasEvent) cls += ' cal-has-event';
+
+      let html = '<div class="' + cls + '" data-date="' + dateStr + '">';
+      html += '<span class="cal-day-num">' + d + '</span>';
+      if (hasEvent) html += '<span class="cal-event-dot"></span>';
+      html += '</div>';
+
+      $grid.append(html);
+    }
+  }
+
+  // Initialise to current month
+  (function () {
+    const now = new Date();
+    calYear  = now.getFullYear();
+    calMonth = now.getMonth();
+    renderCalendar();
+  })();
+
+  $('#cal-prev').on('click', function () {
+    calMonth--;
+    if (calMonth < 0) { calMonth = 11; calYear--; }
+    renderCalendar();
+  });
+
+  $('#cal-next').on('click', function () {
+    calMonth++;
+    if (calMonth > 11) { calMonth = 0; calYear++; }
+    renderCalendar();
+  });
+
+  $(document).on('click', '.cal-has-event', function () {
+    const dateStr = $(this).data('date');
+    const ev = calEvents[dateStr];
+    if (!ev) return;
+    const d = new Date(dateStr + 'T12:00:00');
+    const dateLabel = d.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    $('#cal-event-date').text(dateLabel);
+    $('#cal-event-title').text(ev.title);
+    $('#cal-event-desc').text(ev.desc);
+    $('#cal-event-modal').addClass('open');
+  });
+
+  $('#cal-event-close, #cal-event-modal').on('click', function (e) {
+    if (e.target === this) $('#cal-event-modal').removeClass('open');
+  });
+
+  $(document).on('keydown', function (e) {
+    if ($('#cal-event-modal').hasClass('open') && e.key === 'Escape') {
+      $('#cal-event-modal').removeClass('open');
+    }
+  });
+
 });
