@@ -1,5 +1,10 @@
 $(function () {
 
+  // Hide Apple logo on non-Apple platforms (U+F8FF is Apple-only PUA)
+  if (!/Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent)) {
+    $('.apple').hide();
+  }
+
   let zTop = 1001;
   const MOBILE_BP = 768;
 
