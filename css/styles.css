@@ -51,7 +51,10 @@ html, body {
 }
 #menubar .left { display: flex; gap: 16px; align-items: center; }
 #menubar .right { display: flex; gap: 12px; align-items: center; opacity: 0.8; }
-#menubar .apple { font-size: 15px; }
+#menubar .apple {
+  font-size: 15px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Noto Color Emoji', sans-serif;
+}
 #clock { font-variant-numeric: tabular-nums; }
 
 /* ── ICON GRID ── */
