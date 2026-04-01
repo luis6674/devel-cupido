@@ -149,14 +149,21 @@ $(function () {
   const $ytCap    = $('#yt-caption');
 
   function ytClose() {
+    const localVid = $ytEmbed.find('video')[0];
+    if (localVid) localVid.pause();
     $ytEmbed.empty();
     $ytViewer.removeClass('open');
   }
 
   $(document).on('click', '.video-thumb', function () {
-    const vid = $(this).data('vid');
-    const cap = $(this).data('caption');
-    $ytEmbed.html('<iframe src="https://www.youtube.com/embed/' + vid + '?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+    const localSrc = $(this).data('local-src');
+    const cap      = $(this).data('caption');
+    if (localSrc) {
+      $ytEmbed.html('<video src="' + localSrc + '" controls autoplay playsinline style="width:100%;height:100%;display:block;background:#000;"></video>');
+    } else {
+      const vid = $(this).data('vid');
+      $ytEmbed.html('<iframe src="https://www.youtube.com/embed/' + vid + '?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+    }
     $ytCap.text(cap);
     $ytViewer.addClass('open');
   });
@@ -273,6 +280,11 @@ $(function () {
     if (!audio.duration) return;
     const r = this.getBoundingClientRect();
     audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+  });
+
+  // Seek local video thumbnails to 0.5 s so they show a real frame
+  document.querySelectorAll('.vid-preview').forEach(function (v) {
+    v.addEventListener('loadedmetadata', function () { v.currentTime = 0.5; });
   });
 
   // ── Calendar ──
