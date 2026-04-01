@@ -439,10 +439,12 @@ html, body {
   transform: scale(1.04);
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
-.video-thumb img {
+.video-thumb img,
+.video-thumb .vid-preview {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 .vid-play {
   position: absolute;
