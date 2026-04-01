@@ -282,6 +282,60 @@ $(function () {
     audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
   });
 
+  // ── Notes ──
+  const notes = [
+    {
+      id: 1,
+      title: 'Bienvenido a Cupido',
+      date: '1 de abril de 2026',
+      preview: 'Un nuevo espacio para compartir música...',
+      body: 'Bienvenido a Cupido, un nuevo espacio donde la música y la creatividad se encuentran.\n\nEsta web ha sido diseñada para ofrecerte una experiencia única: explorar contenido, descubrir nuevas canciones y estar al tanto de todo lo que está por venir.\n\nGracias por estar aquí desde el principio. Lo mejor está aún por llegar.'
+    },
+    {
+      id: 2,
+      title: 'Ideas para la web',
+      date: '28 de marzo de 2026',
+      preview: 'Nuevas secciones, mejoras visuales...',
+      body: 'Lista de ideas para seguir mejorando la web:\n\n— Añadir una sección de eventos en directo\n— Galería de fotos ampliada con nuevas sesiones\n— Integrar un formulario de contacto\n— Página de biografía con línea de tiempo\n— Tienda online con merchandising\n\nPrioridad: lanzar la sección de eventos antes de mayo.'
+    },
+    {
+      id: 3,
+      title: 'Próximas novedades',
+      date: '25 de marzo de 2026',
+      preview: 'En los próximos días habrá sorpresas...',
+      body: 'En los próximos días publicaremos varias novedades que llevamos tiempo preparando.\n\nEntre ellas:\n\n· Nuevo single disponible en todas las plataformas\n· Sesión de fotos exclusiva publicada en la galería\n· Anuncio de fechas de conciertos para este verano\n\nEstad atentos a las redes sociales para ser los primeros en enteraros.'
+    }
+  ];
+
+  (function () {
+    const $list = $('#notes-list');
+    notes.forEach(function (note) {
+      $list.append(
+        '<div class="note-item" data-note-id="' + note.id + '">' +
+          '<div class="note-item-title">' + note.title + '</div>' +
+          '<div class="note-item-preview">' + note.preview + '</div>' +
+          '<div class="note-item-date">' + note.date + '</div>' +
+        '</div>'
+      );
+    });
+    // Open first note by default
+    openNote(notes[0].id);
+  })();
+
+  function openNote(id) {
+    const note = notes.find(function (n) { return n.id === id; });
+    if (!note) return;
+    $('.note-item').removeClass('active');
+    $('.note-item[data-note-id="' + id + '"]').addClass('active');
+    $('#note-view-title').text(note.title);
+    $('#note-view-date').text(note.date);
+    $('#note-view-body').text(note.body);
+  }
+
+  $(document).on('click', '.note-item', function () {
+    openNote(parseInt($(this).data('note-id'), 10));
+  });
+
   // Seek local video thumbnails to 0.5 s so they show a real frame
   document.querySelectorAll('.vid-preview').forEach(function (v) {
     v.addEventListener('loadedmetadata', function () { v.currentTime = 0.5; });
