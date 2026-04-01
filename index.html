@@ -304,8 +304,17 @@
     <div class="window-title">Notepad</div>
     <div class="tl-spacer"></div>
   </div>
-  <div class="window-body" style="padding:12px;">
-    <textarea class="notepad-area" placeholder="Start typing your notes here..."></textarea>
+  <div class="window-body" style="padding:0;">
+    <div class="notes-layout">
+      <div class="notes-sidebar">
+        <div class="notes-list" id="notes-list"></div>
+      </div>
+      <div class="notes-content">
+        <div class="note-view-title" id="note-view-title"></div>
+        <div class="note-view-date" id="note-view-date"></div>
+        <div class="note-view-body" id="note-view-body"></div>
+      </div>
+    </div>
   </div>
 </div>
 
