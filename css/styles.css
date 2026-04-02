@@ -90,6 +90,9 @@ html, body {
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.35));
   transition: transform 0.12s;
 }
+.icon-img img {
+  width: 100%;
+}
 .desktop-icon:hover .icon-img { transform: scale(1.08); }
 
 .icon-label {
@@ -136,6 +139,10 @@ html, body {
 }
 .dock-item:hover { transform: translateY(-10px) scale(1.22); }
 .dock-item .dock-icon { font-size: 36px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); line-height: 1; }
+.dock-icon img {
+  width: 42px;
+  vertical-align: bottom;
+}
 .dock-dot {
   width: 4px; height: 4px;
   background: rgba(255,255,255,0.7);
