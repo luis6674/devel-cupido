@@ -51,6 +51,10 @@ $(function () {
 
   // ── Open windows ──
   function openWindow(id) {
+    if (id === 'newsletter') {
+      window.open('https://forms.sonymusicfans.com/campaign/cupido-i-sign-up-form-i-2026/', '_blank', 'noopener');
+      return;
+    }
     if (id === 'documents' && !docsUnlocked) {
       showDocsLock();
       return;
