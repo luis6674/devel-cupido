@@ -59,12 +59,13 @@ html, body {
 
 /* ── ICON GRID ── */
 #icon-grid {
-  flex: 1;
   padding: 32px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, 76px);
+  grid-template-rows: repeat(5, auto);
+  grid-auto-flow: column;
   gap: 12px;
+  align-content: start;
   overflow: hidden;
 }
 
@@ -821,11 +822,11 @@ html, body {
 
 /* ── Mobile (≤ 767px): full-width bottom sheets ── */
 @media (max-width: 767px) {
-  /* Desktop icon grid: horizontal wrap */
+  /* Desktop icon grid: horizontal wrap on mobile */
   #icon-grid {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
+    grid-template-columns: repeat(auto-fill, 76px);
+    grid-template-rows: none;
+    grid-auto-flow: row;
     gap: 8px;
     padding: 20px 16px;
   }
