@@ -832,6 +832,9 @@ html, body {
     padding: 20px 16px;
   }
 
+  /* Dock: hidden on mobile */
+  #dock { display: none; }
+
   /* Dock: smaller icons, hide tooltips */
   .dock-item .dock-icon { font-size: 26px; }
   .dock-tooltip { display: none; }
