@@ -428,6 +428,17 @@ html, body {
 #lightbox-next { right: 20px; }
 #lightbox-prev:hover, #lightbox-next:hover { background: rgba(255,255,255,0.25); }
 
+/* ── Video thumbs inside the picture grid (mixed gallery) ── */
+.picture-grid .video-thumb {
+  aspect-ratio: 4/3;
+}
+.picture-grid .video-thumb .vid-play {
+  opacity: 0.75;
+  font-size: 20px;
+  background: rgba(0,0,0,0.35);
+}
+.picture-grid .video-thumb:hover .vid-play { opacity: 1; }
+
 /* ── VIDEO GRID ── */
 .video-grid {
   display: grid;
