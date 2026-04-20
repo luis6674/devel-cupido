@@ -489,11 +489,27 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: #efefef;
+  padding: 40px 32px 32px;
+  text-align: center;
 }
 .browser-error-img {
-  width: 100%;
-  display: block;
+  width: 80px;
+  height: auto;
+  margin-bottom: 24px;
+}
+.browser-error-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+}
+.browser-error-body {
+  font-size: 13px;
+  color: #555570;
+  line-height: 1.6;
+  max-width: 320px;
+  margin-bottom: 28px;
 }
 .browser-newsletter-btn {
   display: block;
