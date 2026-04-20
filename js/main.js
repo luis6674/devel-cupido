@@ -290,24 +290,24 @@ $(function () {
   const notes = [
     {
       id: 1,
-      title: 'Bienvenido a Cupido',
-      date: '1 de abril de 2026',
-      preview: 'Un nuevo espacio para compartir música...',
-      body: 'Bienvenido a Cupido, un nuevo espacio donde la música y la creatividad se encuentran.\n\nEsta web ha sido diseñada para ofrecerte una experiencia única: explorar contenido, descubrir nuevas canciones y estar al tanto de todo lo que está por venir.\n\nGracias por estar aquí desde el principio. Lo mejor está aún por llegar.'
+      title: 'Amor ciego',
+      date: '6 de abril de 2026',
+      preview: 'Desde que te fuiste...',
+      body: 'Desde que te fuiste no se donde meter los dedos 🔌\n\nYa no compro gomina soy un trol un troleo\nUn guapo feo'
     },
     {
       id: 2,
-      title: 'Ideas para la web',
-      date: '28 de marzo de 2026',
-      preview: 'Nuevas secciones, mejoras visuales...',
-      body: 'Lista de ideas para seguir mejorando la web:\n\n— Añadir una sección de eventos en directo\n— Galería de fotos ampliada con nuevas sesiones\n— Integrar un formulario de contacto\n— Página de biografía con línea de tiempo\n— Tienda online con merchandising\n\nPrioridad: lanzar la sección de eventos antes de mayo.'
+      title: 'Vacilaciones',
+      date: '13 de abril de 2026',
+      preview: 'Me vacilas...',
+      body: 'Me vacilas? 🤔\nSolo tengo que preocuparme ya de comprar pilas\nBb me cansas pila, gasté todas las tilas\n\nLos mismos labios que besaba contaban mentiras'
     },
     {
       id: 3,
-      title: 'Próximas novedades',
-      date: '25 de marzo de 2026',
-      preview: 'En los próximos días habrá sorpresas...',
-      body: 'En los próximos días publicaremos varias novedades que llevamos tiempo preparando.\n\nEntre ellas:\n\n· Nuevo single disponible en todas las plataformas\n· Sesión de fotos exclusiva publicada en la galería\n· Anuncio de fechas de conciertos para este verano\n\nEstad atentos a las redes sociales para ser los primeros en enteraros.'
+      title: 'Aaahhh!!!',
+      date: '20 de abril de 2026',
+      preview: 'Parayaaa...',
+      body: 'Parayaaa\nNo quiero acabar mal\nLa jodí sin querer   😭\nYo quiero ser tu amor y volverte a tener'
     }
   ];
 
