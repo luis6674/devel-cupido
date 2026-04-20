@@ -494,7 +494,7 @@ html, body {
   text-align: center;
 }
 .browser-error-img {
-  width: 80px;
+  width: 60px;
   height: auto;
   margin-bottom: 24px;
 }
@@ -514,7 +514,7 @@ html, body {
 .browser-newsletter-btn {
   display: block;
   width: 60%;
-  max-width: 260px;
+  max-width: 220px;
   margin: 12px auto 24px;
   cursor: pointer;
   transition: transform 0.12s, opacity 0.12s;
