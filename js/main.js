@@ -46,10 +46,6 @@ $(function () {
 
   // ── Open windows ──
   function openWindow(id) {
-    if (id === 'newsletter') {
-      window.open('https://forms.sonymusicfans.com/campaign/cupido-i-sign-up-form-i-2026/', '_blank', 'noopener');
-      return;
-    }
     if (id === 'documents' && !docsUnlocked) {
       showDocsLock();
       return;
@@ -333,6 +329,15 @@ $(function () {
 
   $(document).on('click', '.note-item', function () {
     openNote(parseInt($(this).data('note-id'), 10));
+  });
+
+  // ── Gallery tabs ──
+  $(document).on('click', '.gallery-tab', function () {
+    const tab = $(this).data('tab');
+    $('.gallery-tab').removeClass('active');
+    $(this).addClass('active');
+    $('.gallery-panel').removeClass('active');
+    $('#gallery-' + tab).addClass('active');
   });
 
   // Seek local video thumbnails to 0.5 s so they show a real frame

@@ -53,9 +53,9 @@
       <div class="icon-img"><img src="images/icons/macos-calendar.png" alt="Calendar"></div>
       <div class="icon-label">Calendar</div>
     </div>
-    <div class="desktop-icon" data-window="newsletter">
-      <div class="icon-img"><img src="images/icons/ios-mail-application.png" alt="Newsletter"></div>
-      <div class="icon-label">Newsletter</div>
+    <div class="desktop-icon" data-window="browser">
+      <div class="icon-img"><img src="images/icons/browser.png" alt="Navegador"></div>
+      <div class="icon-label">Navegador</div>
     </div>
     <div class="desktop-icon" data-window="notepad">
       <div class="icon-img"><img src="images/icons/notes.png" alt="Bloc de notas"></div>
@@ -113,75 +113,85 @@
     <div class="window-title">Galería</div>
     <div class="tl-spacer"></div>
   </div>
-  <div class="window-body">
-    <div class="picture-grid">
-      <div class="picture-thumb" data-src="images/gallery/1b3c2bf2-a079-44fc-b54f-79157c8e8efd.jpg" data-caption="Foto 1">
-        <img src="images/gallery/1b3c2bf2-a079-44fc-b54f-79157c8e8efd.jpg" alt="Foto 1" loading="lazy">
-        <div class="pic-label">Foto 1</div>
+  <div class="window-body" style="padding:0;display:flex;flex-direction:column;">
+    <div class="gallery-tabs">
+      <button class="gallery-tab active" data-tab="fotos">Fotos</button>
+      <button class="gallery-tab" data-tab="videos">Vídeos</button>
+    </div>
+    <div class="gallery-panel active" id="gallery-fotos">
+      <div class="picture-grid">
+        <div class="picture-thumb" data-src="images/gallery/1b3c2bf2-a079-44fc-b54f-79157c8e8efd.jpg" data-caption="Foto 1">
+          <img src="images/gallery/1b3c2bf2-a079-44fc-b54f-79157c8e8efd.jpg" alt="Foto 1" loading="lazy">
+          <div class="pic-label">Foto 1</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/d7cb060a-cd54-4237-968d-61277cfccc2f.JPG" data-caption="Foto 2">
+          <img src="images/gallery/d7cb060a-cd54-4237-968d-61277cfccc2f.JPG" alt="Foto 2" loading="lazy">
+          <div class="pic-label">Foto 2</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/f9e66077-a586-46fc-9586-18524558e73e.jpg" data-caption="Foto 3">
+          <img src="images/gallery/f9e66077-a586-46fc-9586-18524558e73e.jpg" alt="Foto 3" loading="lazy">
+          <div class="pic-label">Foto 3</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.44.21.jpeg" data-caption="Foto 4">
+          <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.44.21.jpeg" alt="Foto 4" loading="lazy">
+          <div class="pic-label">Foto 4</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.44.21%20(1).jpeg" data-caption="Foto 5">
+          <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.44.21%20(1).jpeg" alt="Foto 5" loading="lazy">
+          <div class="pic-label">Foto 5</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.18%20(1).jpeg" data-caption="Foto 6">
+          <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.18%20(1).jpeg" alt="Foto 6" loading="lazy">
+          <div class="pic-label">Foto 6</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.20.jpeg" data-caption="Foto 7">
+          <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.20.jpeg" alt="Foto 7" loading="lazy">
+          <div class="pic-label">Foto 7</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21.jpeg" data-caption="Foto 8">
+          <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21.jpeg" alt="Foto 8" loading="lazy">
+          <div class="pic-label">Foto 8</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21%20(1).jpeg" data-caption="Foto 9">
+          <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21%20(1).jpeg" alt="Foto 9" loading="lazy">
+          <div class="pic-label">Foto 9</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21%20(2).jpeg" data-caption="Foto 10">
+          <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21%20(2).jpeg" alt="Foto 10" loading="lazy">
+          <div class="pic-label">Foto 10</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.22.jpeg" data-caption="Foto 11">
+          <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.22.jpeg" alt="Foto 11" loading="lazy">
+          <div class="pic-label">Foto 11</div>
+        </div>
+        <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.50.49.jpeg" data-caption="Foto 12">
+          <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.50.49.jpeg" alt="Foto 12" loading="lazy">
+          <div class="pic-label">Foto 12</div>
+        </div>
       </div>
-      <div class="picture-thumb" data-src="images/gallery/d7cb060a-cd54-4237-968d-61277cfccc2f.JPG" data-caption="Foto 2">
-        <img src="images/gallery/d7cb060a-cd54-4237-968d-61277cfccc2f.JPG" alt="Foto 2" loading="lazy">
-        <div class="pic-label">Foto 2</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/f9e66077-a586-46fc-9586-18524558e73e.jpg" data-caption="Foto 3">
-        <img src="images/gallery/f9e66077-a586-46fc-9586-18524558e73e.jpg" alt="Foto 3" loading="lazy">
-        <div class="pic-label">Foto 3</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.44.21.jpeg" data-caption="Foto 4">
-        <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.44.21.jpeg" alt="Foto 4" loading="lazy">
-        <div class="pic-label">Foto 4</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.44.21%20(1).jpeg" data-caption="Foto 5">
-        <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.44.21%20(1).jpeg" alt="Foto 5" loading="lazy">
-        <div class="pic-label">Foto 5</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.18%20(1).jpeg" data-caption="Foto 6">
-        <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.18%20(1).jpeg" alt="Foto 6" loading="lazy">
-        <div class="pic-label">Foto 6</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.20.jpeg" data-caption="Foto 7">
-        <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.20.jpeg" alt="Foto 7" loading="lazy">
-        <div class="pic-label">Foto 7</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21.jpeg" data-caption="Foto 8">
-        <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21.jpeg" alt="Foto 8" loading="lazy">
-        <div class="pic-label">Foto 8</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21%20(1).jpeg" data-caption="Foto 9">
-        <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21%20(1).jpeg" alt="Foto 9" loading="lazy">
-        <div class="pic-label">Foto 9</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21%20(2).jpeg" data-caption="Foto 10">
-        <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.21%20(2).jpeg" alt="Foto 10" loading="lazy">
-        <div class="pic-label">Foto 10</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.22.jpeg" data-caption="Foto 11">
-        <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.46.22.jpeg" alt="Foto 11" loading="lazy">
-        <div class="pic-label">Foto 11</div>
-      </div>
-      <div class="picture-thumb" data-src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.50.49.jpeg" data-caption="Foto 12">
-        <img src="images/gallery/WhatsApp%20Image%202026-04-20%20at%2011.50.49.jpeg" alt="Foto 12" loading="lazy">
-        <div class="pic-label">Foto 12</div>
-      </div>
-      <div class="video-thumb" data-local-src="images/gallery/MVI_0281.webm" data-caption="Video 1">
-        <video class="vid-preview" src="images/gallery/MVI_0281.webm" preload="metadata" muted playsinline></video>
-        <div class="vid-play">▶</div>
-        <div class="pic-label">Video 1</div>
-      </div>
-      <div class="video-thumb" data-local-src="images/gallery/MVI_0289.webm" data-caption="Video 2">
-        <video class="vid-preview" src="images/gallery/MVI_0289.webm" preload="metadata" muted playsinline></video>
-        <div class="vid-play">▶</div>
-        <div class="pic-label">Video 2</div>
-      </div>
-      <div class="video-thumb" data-local-src="images/gallery/Sin%20t%C3%ADtulo_3.webm" data-caption="Video 3">
-        <video class="vid-preview" src="images/gallery/Sin%20t%C3%ADtulo_3.webm" preload="metadata" muted playsinline></video>
-        <div class="vid-play">▶</div>
-        <div class="pic-label">Video 3</div>
-      </div>
-      <div class="video-thumb" data-local-src="images/gallery/WhatsApp%20Video%202026-04-20%20at%2011.57.22.webm" data-caption="Video 4">
-        <video class="vid-preview" src="images/gallery/WhatsApp%20Video%202026-04-20%20at%2011.57.22.webm" preload="metadata" muted playsinline></video>
-        <div class="vid-play">▶</div>
-        <div class="pic-label">Video 4</div>
+    </div>
+    <div class="gallery-panel" id="gallery-videos">
+      <div class="picture-grid">
+        <div class="video-thumb" data-local-src="images/gallery/MVI_0281.webm" data-caption="Video 1">
+          <video class="vid-preview" src="images/gallery/MVI_0281.webm" preload="metadata" muted playsinline></video>
+          <div class="vid-play">▶</div>
+          <div class="pic-label">Video 1</div>
+        </div>
+        <div class="video-thumb" data-local-src="images/gallery/MVI_0289.webm" data-caption="Video 2">
+          <video class="vid-preview" src="images/gallery/MVI_0289.webm" preload="metadata" muted playsinline></video>
+          <div class="vid-play">▶</div>
+          <div class="pic-label">Video 2</div>
+        </div>
+        <div class="video-thumb" data-local-src="images/gallery/Sin%20t%C3%ADtulo_3.webm" data-caption="Video 3">
+          <video class="vid-preview" src="images/gallery/Sin%20t%C3%ADtulo_3.webm" preload="metadata" muted playsinline></video>
+          <div class="vid-play">▶</div>
+          <div class="pic-label">Video 3</div>
+        </div>
+        <div class="video-thumb" data-local-src="images/gallery/WhatsApp%20Video%202026-04-20%20at%2011.57.22.webm" data-caption="Video 4">
+          <video class="vid-preview" src="images/gallery/WhatsApp%20Video%202026-04-20%20at%2011.57.22.webm" preload="metadata" muted playsinline></video>
+          <div class="vid-play">▶</div>
+          <div class="pic-label">Video 4</div>
+        </div>
       </div>
     </div>
   </div>
@@ -367,6 +377,30 @@
     <div id="cal-event-title"></div>
     <div id="cal-event-desc"></div>
     <button id="cal-event-close">Cerrar</button>
+  </div>
+</div>
+
+<!-- BROWSER -->
+<div class="mac-window" id="win-browser" style="top:80px;left:120px;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-browser">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Navegador</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body" style="padding:0;display:flex;flex-direction:column;">
+    <div class="browser-bar">
+      <div class="browser-address">cupido.es</div>
+    </div>
+    <div class="browser-content">
+      <img src="images/browser_no_connection.jpg" alt="Sin conexión" class="browser-error-img">
+      <a href="https://forms.sonymusicfans.com/campaign/cupido-i-sign-up-form-i-2026/" target="_blank" rel="noopener">
+        <img src="images/button_newsletter.png" alt="Apúntate al newsletter" class="browser-newsletter-btn">
+      </a>
+    </div>
   </div>
 </div>
 
