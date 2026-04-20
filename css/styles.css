@@ -20,6 +20,11 @@ html, body {
   font-family: 'DM Sans', sans-serif;
 }
 
+.skip-link {
+  position: fixed;
+  top: -200px;
+}
+
 /* ── DESKTOP ── */
 #desktop {
   width: 100vw; height: calc(100vh - 28px);
