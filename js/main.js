@@ -331,6 +331,11 @@ $(function () {
     openNote(parseInt($(this).data('note-id'), 10));
   });
 
+  // ── Newsletter window open from browser ──
+  $('#newsletter-open-btn').on('click', function () {
+    openWindow('newsletter');
+  });
+
   // ── Legal footer toggle ──
   $('#footer-toggle').on('click', function (e) {
     e.stopPropagation();
