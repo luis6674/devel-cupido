@@ -913,18 +913,6 @@ html, body {
   height: calc(100dvh - 120px);
 }
 
-/* ── NEWSLETTER WINDOW ── */
-#win-newsletter {
-  width: clamp(380px, 78vw, 860px);
-  height: clamp(500px, 82vh, 740px);
-}
-#newsletter-open-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
 /* ── LEGAL FOOTER ── */
 #footer {
   position: fixed;
