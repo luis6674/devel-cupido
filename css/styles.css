@@ -972,13 +972,23 @@ html, body {
 
 /* ── Mobile (≤ 767px): full-width bottom sheets ── */
 @media (max-width: 767px) {
-  /* Desktop icon grid: horizontal wrap on mobile */
+  /* Desktop icon grid: 3 columns on mobile */
   #icon-grid {
-    grid-template-columns: repeat(auto-fill, 76px);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: none;
     grid-auto-flow: row;
     gap: 8px;
     padding: 20px 16px;
+  }
+  .desktop-icon {
+    width: auto;
+    padding: 10px 6px;
+  }
+  .icon-img {
+    width: 64px; height: 64px;
+  }
+  .icon-label {
+    font-size: 13px;
   }
 
   /* Dock: hidden on mobile */
