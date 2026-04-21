@@ -332,8 +332,21 @@ $(function () {
   });
 
   // ── Newsletter window open from browser ──
+  let newsletterLoaded = false;
+  function loadNewsletter(cb) {
+    if (newsletterLoaded) { cb(); return; }
+    newsletterLoaded = true;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'css/newsletter.css';
+    document.head.appendChild(link);
+    var script = document.createElement('script');
+    script.src = 'js/newsletter.js';
+    script.onload = cb;
+    document.body.appendChild(script);
+  }
   $('#newsletter-open-btn').on('click', function () {
-    openWindow('newsletter');
+    loadNewsletter(function () { openWindow('newsletter'); });
   });
 
   // ── Legal footer toggle ──
