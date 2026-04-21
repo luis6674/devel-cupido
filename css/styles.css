@@ -907,6 +907,12 @@ html, body {
 }
 #cal-event-close:hover { filter: brightness(0.92); }
 
+/*----- NEWSLETTER -----*/
+#win-newsletter {
+  width: 80%;
+  height: calc(100dvh - 120px);
+}
+
 /* ── LEGAL FOOTER ── */
 #footer {
   position: fixed;
