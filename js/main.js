@@ -81,7 +81,7 @@ $(function () {
     const id = $(this).data('close');
     if (id === 'win-audioplayer') {
       audio.pause();
-      $('#play-btn').text('▶');
+      $('#play-btn').html(SVG_PLAY);
     }
     $('#' + id).fadeOut(160);
   });
@@ -192,6 +192,8 @@ $(function () {
   });
 
   // ── Audio Player ──
+  const SVG_PLAY  = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><polygon points="6,3 20,12 6,21"/></svg>';
+  const SVG_PAUSE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="4" height="16"/><rect x="15" y="4" width="4" height="16"/></svg>';
   const audio = new Audio();
   const trackList = [];
   let trackIndex = -1;
@@ -228,7 +230,7 @@ $(function () {
   function playTrack(idx) {
     loadTrack(idx);
     audio.play().catch(function () {});
-    $('#play-btn').text('⏸');
+    $('#play-btn').html(SVG_PAUSE);
   }
 
   $(document).on('click', '.music-file', function () {
@@ -241,10 +243,10 @@ $(function () {
     if (trackIndex < 0) return;
     if (audio.paused) {
       audio.play().catch(function () {});
-      $(this).text('⏸');
+      $(this).html(SVG_PAUSE);
     } else {
       audio.pause();
-      $(this).text('▶');
+      $(this).html(SVG_PLAY);
     }
   });
 
@@ -266,7 +268,7 @@ $(function () {
   });
 
   audio.addEventListener('ended', function () {
-    $('#play-btn').text('▶');
+    $('#play-btn').html(SVG_PLAY);
     // auto-advance to next track
     if (trackIndex < trackList.length - 1) playTrack(trackIndex + 1);
   });
