@@ -925,6 +925,7 @@ html, body {
   padding: 24px 32px;
   overflow-y: auto;
 }
+#newsletter_form_container { height: 100%; }
 #win-newsletter .form-group { margin-bottom: 12px; }
 #win-newsletter .form-control {
   width: 100%;
@@ -943,10 +944,23 @@ html, body {
   box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
 }
 #win-newsletter .invalid-feedback { display: none; font-size: 12px; color: #dc3545; margin-top: 4px; }
-#win-newsletter .was-validated .form-control:invalid { border-color: #dc3545; }
-#win-newsletter .was-validated .form-control:invalid + .invalid-feedback,
-#win-newsletter .was-validated .form-control:invalid ~ .invalid-feedback { display: block; }
-#win-newsletter .was-validated input[type="checkbox"]:invalid ~ .invalid-feedback { display: block; }
+#win-newsletter .is-invalid { border-color: #dc3545 !important; }
+#win-newsletter .is-invalid + .invalid-feedback,
+#win-newsletter .is-invalid ~ .invalid-feedback { display: block; }
+#newsletter_form_response {
+  display: none;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.newsletter-response-content {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  padding: 40px;
+  line-height: 1.6;
+}
 #win-newsletter .input-group { margin-bottom: 10px; }
 #win-newsletter .checkbox { display: flex; gap: 10px; align-items: flex-start; }
 #win-newsletter .checkbox input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; }
