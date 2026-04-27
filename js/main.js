@@ -350,17 +350,15 @@ $(function () {
           .fail(function () { success('es'); });
       },
       hiddenInput: function () { return { phone: 'field_mobile_phone' }; },
-      dropdownContainer: document.body,
-      loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/utils.js'
+      dropdownContainer: document.body
     });
 
-    // flag → country select + placeholder
+    // flag → country select
     phoneEl.addEventListener('countrychange', function () {
       const cd = iti.getSelectedCountryData();
       if (cd && cd.iso2) {
         $('#field_country_region').val(cd.iso2.toUpperCase());
       }
-      updatePlaceholder();
     });
 
     // country select → flag
@@ -369,24 +367,14 @@ $(function () {
       if (code) iti.setCountry(code.toLowerCase());
     });
 
-    // Manually update placeholder — autoPlaceholder only fires during countrychange
-    // but utils hasn't loaded yet at that point, so we poll and set it ourselves
-    function updatePlaceholder() {
-      if (!window.intlTelInputUtils) return;
+    // Load utils via static method; once loaded re-set the current country so
+    // intl-tel-input's internal _updatePlaceholder() fires with utils available
+    window.intlTelInput.loadUtils(
+      'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/utils.js'
+    ).then(function () {
       const cd = iti.getSelectedCountryData();
-      if (!cd || !cd.iso2) return;
-      try {
-        const ex = window.intlTelInputUtils.getExampleNumber(
-          cd.iso2, true, window.intlTelInputUtils.numberType.MOBILE
-        );
-        if (ex) phoneEl.setAttribute('placeholder', ex);
-      } catch (e) {}
-    }
-    const utilsPoller = setInterval(function () {
-      if (!window.intlTelInputUtils) return;
-      clearInterval(utilsPoller);
-      updatePlaceholder();
-    }, 150);
+      if (cd && cd.iso2) iti.setCountry(cd.iso2);
+    });
   }
 
   $('#newsletter-open-btn').on('click', function (e) {
