@@ -989,6 +989,30 @@ html, body {
 /* intl-tel-input: fill the form group width; dropdown above all windows */
 #win-newsletter .iti { width: 100%; }
 .iti--container { z-index: 100000 !important; }
+/* Push phone text right so it clears the flag button */
+#win-newsletter .iti input.form-control { padding-left: 48px; }
+
+/* Newsletter intro title */
+#win-newsletter .newsletter-intro {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Two-column form grid */
+#win-newsletter #newsletter-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  align-items: start;
+}
+/* Email, checkboxes, footnote and button span both columns */
+#win-newsletter .form-group:has(#field_email_address),
+#win-newsletter .input-group,
+#win-newsletter .form-group-footnote,
+#win-newsletter .form-group-button { grid-column: 1 / -1; }
 
 /* ── LEGAL FOOTER ── */
 #footer {
