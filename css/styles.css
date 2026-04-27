@@ -1092,6 +1092,9 @@ font-size: 26px;
 
 /* ── Mobile (≤ 767px): full-width bottom sheets ── */
 @media (max-width: 767px) {
+  /* Newsletter: single-column form */
+  #win-newsletter #newsletter-form { grid-template-columns: 1fr; }
+
   /* Desktop icon grid: 3 columns on mobile */
   #icon-grid {
     grid-template-columns: repeat(3, 1fr);
