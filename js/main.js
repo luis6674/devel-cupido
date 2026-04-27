@@ -343,14 +343,14 @@ $(function () {
     if (!phoneEl) return;
     iti = window.intlTelInput(phoneEl, {
       initialCountry: 'auto',
+      autoPlaceholder: 'polite',
       geoIpLookup: function (success) {
         $.getJSON('https://ipapi.co/json/')
           .done(function (data) { success(data && data.country_code ? data.country_code : 'es'); })
           .fail(function () { success('es'); });
       },
       hiddenInput: function () { return { phone: 'field_mobile_phone' }; },
-      dropdownContainer: document.body,
-      loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/utils.js'
+      dropdownContainer: document.body
     });
 
     // flag → country select
@@ -379,7 +379,12 @@ $(function () {
       }).appendTo('head');
       const s = document.createElement('script');
       s.src = 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/intlTelInput.min.js';
-      s.onload = initIti;
+      s.onload = function () {
+        const u = document.createElement('script');
+        u.src = 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/utils.js';
+        u.onload = initIti;
+        document.head.appendChild(u);
+      };
       document.head.appendChild(s);
     }
   });
