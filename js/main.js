@@ -494,9 +494,16 @@ $(function () {
     const $postal = $('#field_postal_code');
     if (!$postal.val().trim() || $postal.val().trim().length > 20) fail($postal);
 
-    // Phone — valid number via intl-tel-input (or non-empty fallback)
+    // Phone — use isValidNumber() only when utils are loaded (returns a boolean);
+    // otherwise fall back to a non-empty check so a loaded-but-unvalidated utils
+    // doesn't silently block every submission
     const $phone = $('#phone');
-    if (iti ? !iti.isValidNumber() : !$phone.val().trim()) fail($phone);
+    const phoneHasValue = !!$phone.val().trim();
+    let phoneOk = phoneHasValue;
+    if (phoneHasValue && iti) {
+      try { const v = iti.isValidNumber(); if (typeof v === 'boolean') phoneOk = v; } catch (e) {}
+    }
+    if (!phoneOk) fail($phone);
 
     // Mandatory consent checkbox
     const $consent = $(form).find('input[type="checkbox"][required]');
