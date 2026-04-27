@@ -333,6 +333,12 @@ $(function () {
     openNote(parseInt($(this).data('note-id'), 10));
   });
 
+  // ── Newsletter window ──
+  $('#newsletter-open-btn').on('click', function (e) {
+    e.preventDefault();
+    openWindow('newsletter');
+  });
+
   // ── Legal footer toggle ──
   $('#footer-toggle').on('click', function (e) {
     e.stopPropagation();
