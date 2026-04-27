@@ -350,7 +350,8 @@ $(function () {
           .fail(function () { success('es'); });
       },
       hiddenInput: function () { return { phone: 'field_mobile_phone' }; },
-      dropdownContainer: document.body
+      dropdownContainer: document.body,
+      loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/utils.js'
     });
 
     // flag → country select
@@ -379,12 +380,7 @@ $(function () {
       }).appendTo('head');
       const s = document.createElement('script');
       s.src = 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/intlTelInput.min.js';
-      s.onload = function () {
-        const u = document.createElement('script');
-        u.src = 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/utils.js';
-        u.onload = initIti;
-        document.head.appendChild(u);
-      };
+      s.onload = initIti;
       document.head.appendChild(s);
     }
   });
