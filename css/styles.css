@@ -970,6 +970,7 @@ html, body {
   transition: filter 0.12s;
 }
 #win-newsletter .btn-primary:hover { filter: brightness(0.92); }
+#ui-datepicker-div { z-index: 99999 !important; }
 
 /* ── LEGAL FOOTER ── */
 #footer {

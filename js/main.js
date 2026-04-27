@@ -339,6 +339,21 @@ $(function () {
     openWindow('newsletter');
   });
 
+  $('#dob_picker').datepicker({
+    changeMonth: true,
+    changeYear: true,
+    yearRange: 'c-100:c+0',
+    dateFormat: 'yy-mm-dd'
+  });
+
+  $('#newsletter-form').on('submit', function (e) {
+    e.preventDefault();
+    const form = this;
+    $(form).addClass('was-validated');
+    if (!form.checkValidity()) return;
+    // submission logic — next step
+  });
+
   // ── Legal footer toggle ──
   $('#footer-toggle').on('click', function (e) {
     e.stopPropagation();
