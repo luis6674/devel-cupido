@@ -337,27 +337,76 @@ $(function () {
   let iti = null;
   let itiLoaded = false;
 
+  // National-format phone examples by ISO2 country code (no country prefix)
+  var PHONE_EX = {
+    AD:'312 345',        AE:'050 123 4567',   AF:'070 123 4567',
+    AL:'066 212 3456',   AM:'077 123456',     AO:'923 123 456',
+    AR:'011 1234-5678',  AT:'0664 123456',    AU:'0412 345 678',
+    AZ:'040 123 45 67',  BA:'061 123 456',    BD:'01812-345678',
+    BE:'0470 12 34 56',  BG:'087 123 4567',   BH:'3600 1234',
+    BO:'71234567',       BR:'(11) 91234-5678',BS:'(242) 359-1234',
+    BY:'029 491-19-11',  BZ:'622-1234',       CA:'(506) 234-5678',
+    CH:'076 123 45 67',  CL:'09 1234 5678',   CM:'6 71 23 45 67',
+    CN:'131 2345 6789',  CO:'300 123 4567',   CR:'8312 3456',
+    CU:'05 1234567',     CY:'96 123456',      CZ:'601 123 456',
+    DE:'01512 3456789',  DK:'20 12 34 56',    DO:'809 234 5678',
+    DZ:'055 12 34 56',   EC:'099 123 4567',   EE:'5123 4567',
+    EG:'010 1234 5678',  ES:'612 345 678',    ET:'091 123 4567',
+    FI:'041 2345678',    FR:'06 12 34 56 78', GA:'06 03 12 34',
+    GB:'07400 123456',   GE:'555 01 23 45',   GH:'023 123 4567',
+    GR:'691 234 5678',   GT:'5120 1234',      HN:'9123-4567',
+    HR:'091 234 5678',   HT:'34 10 1234',     HU:'06 20 123 4567',
+    ID:'0812-3456-789',  IE:'085 012 3456',   IL:'050-234-5678',
+    IN:'081234 56789',   IQ:'0791 234 5678',  IR:'0912 345 6789',
+    IS:'611 1234',       IT:'312 345 6789',   JM:'(876) 210-1234',
+    JO:'079 0123456',    JP:'090-1234-5678',  KE:'0712 123456',
+    KR:'010-2000-0000',  KW:'500 12345',      KZ:'8 701 234 56 78',
+    LB:'71 123 456',     LK:'071 234 5678',   LT:'611 12345',
+    LU:'621 123 456',    LV:'211 23456',      LY:'091 2345678',
+    MA:'0650-123456',    MD:'062 612 345',    ME:'067 622 901',
+    MK:'072 345 678',    MM:'09 212 3456',    MT:'9696 1234',
+    MU:'5251 2345',      MW:'0991 23 45 67',  MX:'55 1234 5678',
+    MY:'012-345 6789',   MZ:'82 123 4567',    NA:'081 246 8347',
+    NG:'0802 123 4567',  NI:'8123 4567',      NL:'06 12345678',
+    NO:'40 61 23 45',    NP:'984-1234567',    NZ:'021 123 4567',
+    OM:'9212 3456',      PA:'6123-4567',      PE:'912 345 678',
+    PH:'0905 123 4567',  PK:'0301 2345678',   PL:'512 345 678',
+    PT:'912 345 678',    PY:'0961 456789',    QA:'3312 3456',
+    RO:'0712 034 567',   RS:'060 1234567',    RU:'8 912 345-67-89',
+    RW:'0720 123 456',   SA:'051 234 5678',   SE:'070-123 45 67',
+    SG:'8123 4567',      SI:'031 234 567',    SK:'0912 123 456',
+    SN:'70 123 45 67',   SV:'7012 3456',      SZ:'7612 3456',
+    TH:'081 234 5678',   TN:'20 123 456',     TR:'0501 234 56 78',
+    TW:'0912 345 678',   TZ:'0621 234 567',   UA:'050 123 4567',
+    UG:'0712 345678',    US:'(201) 555-0123', UY:'094 231 234',
+    UZ:'8 90 123 45 67', VE:'0412-1234567',   VN:'091 234 56 78',
+    YE:'0712 3456789',   ZA:'071 123 4567',   ZM:'095 5123456',
+    ZW:'071 234 5678'
+  };
+
   function initIti() {
     if (iti) return;
     const phoneEl = document.querySelector('#phone');
     if (!phoneEl) return;
     iti = window.intlTelInput(phoneEl, {
       initialCountry: 'auto',
-      autoPlaceholder: 'polite',
       geoIpLookup: function (success) {
         $.getJSON('https://ipapi.co/json/')
           .done(function (data) { success(data && data.country_code ? data.country_code : 'es'); })
           .fail(function () { success('es'); });
       },
       hiddenInput: function () { return { phone: 'field_mobile_phone' }; },
-      dropdownContainer: document.body
+      dropdownContainer: document.body,
+      loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/utils.js'
     });
 
-    // flag → country select
+    // flag → country select + placeholder
     phoneEl.addEventListener('countrychange', function () {
       const cd = iti.getSelectedCountryData();
       if (cd && cd.iso2) {
-        $('#field_country_region').val(cd.iso2.toUpperCase());
+        const code = cd.iso2.toUpperCase();
+        $('#field_country_region').val(code);
+        phoneEl.setAttribute('placeholder', PHONE_EX[code] || '');
       }
     });
 
@@ -365,15 +414,6 @@ $(function () {
     $('#field_country_region').on('change.iti', function () {
       const code = $(this).val();
       if (code) iti.setCountry(code.toLowerCase());
-    });
-
-    // Load utils via static method; once loaded re-set the current country so
-    // intl-tel-input's internal _updatePlaceholder() fires with utils available
-    window.intlTelInput.loadUtils(
-      'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/utils.js'
-    ).then(function () {
-      const cd = iti.getSelectedCountryData();
-      if (cd && cd.iso2) iti.setCountry(cd.iso2);
     });
   }
 
