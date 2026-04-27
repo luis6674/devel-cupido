@@ -334,9 +334,54 @@ $(function () {
   });
 
   // ── Newsletter window ──
+  let iti = null;
+  let itiLoaded = false;
+
+  function initIti() {
+    if (iti) return;
+    const phoneEl = document.querySelector('#phone');
+    if (!phoneEl) return;
+    iti = window.intlTelInput(phoneEl, {
+      initialCountry: 'auto',
+      geoIpLookup: function (success) {
+        $.getJSON('https://ipapi.co/json/')
+          .done(function (data) { success(data && data.country_code ? data.country_code : 'es'); })
+          .fail(function () { success('es'); });
+      },
+      hiddenInput: function () { return { phone: 'field_mobile_phone' }; },
+      dropdownContainer: document.body,
+      loadUtilsOnInit: 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/utils.js'
+    });
+
+    // flag → country select
+    phoneEl.addEventListener('countrychange', function () {
+      const cd = iti.getSelectedCountryData();
+      if (cd && cd.iso2) {
+        $('#field_country_region').val(cd.iso2.toUpperCase());
+      }
+    });
+
+    // country select → flag
+    $('#field_country_region').on('change.iti', function () {
+      const code = $(this).val();
+      if (code) iti.setCountry(code.toLowerCase());
+    });
+  }
+
   $('#newsletter-open-btn').on('click', function (e) {
     e.preventDefault();
     openWindow('newsletter');
+    if (!itiLoaded) {
+      itiLoaded = true;
+      $('<link>', {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/css/intlTelInput.min.css'
+      }).appendTo('head');
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/intlTelInput.min.js';
+      s.onload = initIti;
+      document.head.appendChild(s);
+    }
   });
 
   $('#dob_picker').datepicker({
@@ -400,9 +445,9 @@ $(function () {
     const $postal = $('#field_postal_code');
     if (!$postal.val().trim() || $postal.val().trim().length > 20) fail($postal);
 
-    // Phone — not empty
+    // Phone — valid number via intl-tel-input (or non-empty fallback)
     const $phone = $('#phone');
-    if (!$phone.val().trim()) fail($phone);
+    if (iti ? !iti.isValidNumber() : !$phone.val().trim()) fail($phone);
 
     // Mandatory consent checkbox
     const $consent = $(form).find('input[type="checkbox"][required]');

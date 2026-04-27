@@ -986,6 +986,10 @@ html, body {
 #win-newsletter .btn-primary:hover { filter: brightness(0.92); }
 #ui-datepicker-div { z-index: 99999 !important; }
 
+/* intl-tel-input: fill the form group width; dropdown above all windows */
+#win-newsletter .iti { width: 100%; }
+.iti--container { z-index: 100000 !important; }
+
 /* ── LEGAL FOOTER ── */
 #footer {
   position: fixed;
