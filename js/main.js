@@ -346,12 +346,86 @@ $(function () {
     dateFormat: 'yy-mm-dd'
   });
 
+  $('body').on('change', '.mailing-list-id', function () {
+    var ml_id = $(this).attr('id').substring(16, 17);
+    $('#ts-for-ml-' + ml_id).prop('checked', $(this).is(':checked'));
+  });
+
   $('#newsletter-form').on('submit', function (e) {
     e.preventDefault();
     const form = this;
-    $(form).addClass('was-validated');
-    if (!form.checkValidity()) return;
-    // submission logic — next step
+    let valid = true;
+
+    // Sanitise text inputs
+    $(form).find('input[type="text"], input[type="email"], input[type="tel"]').val(function (_, v) {
+      return $.trim(v.replace(/(<([^>]+)>)/gi, ''));
+    });
+
+    // Clear previous error state
+    $(form).find('.is-invalid').removeClass('is-invalid');
+
+    function fail($el) { $el.addClass('is-invalid'); valid = false; }
+
+    // Email — valid format
+    const $email = $('#field_email_address');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test($email.val())) fail($email);
+
+    // First name — letters, spaces, accents, hyphens only; within maxlength
+    const $first = $('#field_first_name');
+    const firstName = $first.val().trim();
+    if (!firstName || !/^[a-zA-ZÀ-ÿ\s'-]+$/.test(firstName) || firstName.length > 30) fail($first);
+
+    // Last name — same rules
+    const $last = $('#field_last_name');
+    const lastName = $last.val().trim();
+    if (!lastName || !/^[a-zA-ZÀ-ÿ\s'-]+$/.test(lastName) || lastName.length > 60) fail($last);
+
+    // Country — must be selected
+    const $country = $('#field_country_region');
+    if (!$country.val()) fail($country);
+
+    // Date of birth — YYYY-MM-DD, real past date, not more than 120 years ago
+    const $dob = $('#dob_picker');
+    const dobParts = $dob.val().trim().split('-');
+    if (dobParts.length === 3 && /^\d{4}$/.test(dobParts[0]) && /^\d{2}$/.test(dobParts[1]) && /^\d{2}$/.test(dobParts[2])) {
+      const d = new Date(+dobParts[0], +dobParts[1] - 1, +dobParts[2]);
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const isRealDate = d.getFullYear() === +dobParts[0] && d.getMonth() === +dobParts[1] - 1 && d.getDate() === +dobParts[2];
+      if (!isRealDate || d >= today || +dobParts[0] < today.getFullYear() - 120) fail($dob);
+    } else {
+      fail($dob);
+    }
+
+    // Postal code — not empty, within maxlength
+    const $postal = $('#field_postal_code');
+    if (!$postal.val().trim() || $postal.val().trim().length > 20) fail($postal);
+
+    // Phone — not empty
+    const $phone = $('#phone');
+    if (!$phone.val().trim()) fail($phone);
+
+    // Mandatory consent checkbox
+    const $consent = $(form).find('input[type="checkbox"][required]');
+    if (!$consent.is(':checked')) fail($consent);
+
+    if (!valid) return;
+
+    var data = $(form).serialize();
+    $.ajax({
+      type: 'POST',
+      url: 'https://subs.sonymusicfans.com/submit',
+      dataType: 'json',
+      data: data,
+      xhrFields: { withCredentials: false },
+      success: function () {
+        $('#newsletter_form_container').fadeOut(function () {
+          $('#newsletter_form_response').fadeIn();
+        });
+      },
+      error: function () {
+        alert('Ha ocurrido un error. Por favor, inténtalo más tarde.');
+      }
+    });
   });
 
   // ── Legal footer toggle ──
