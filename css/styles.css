@@ -990,15 +990,20 @@ html, body {
 #win-newsletter .iti { width: 100%; }
 .iti--container { z-index: 100000 !important; }
 /* Push phone text right so it clears the flag button */
-#win-newsletter .iti input.form-control { padding-left: 48px; }
+#win-newsletter .iti input.form-control { padding-left: 48px !important; }
 
 /* Newsletter intro title */
+#newsletter_form_container h1 {
+text-align: center;
+font-size: 26px;
+}
 #win-newsletter .newsletter-intro {
   font-size: 15px;
   font-weight: 500;
   color: var(--text-primary);
   line-height: 1.5;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Two-column form grid */
@@ -1008,8 +1013,16 @@ html, body {
   column-gap: 16px;
   align-items: start;
 }
-/* Email, checkboxes, footnote and button span both columns */
-#win-newsletter .form-group:has(#field_email_address),
+/* Phone label in same line */
+#newsletter-form .mobile-label {
+  width: 58px;
+  display: inline-block;
+}
+#newsletter-form .iti--inline-dropdown {
+  width: calc(100% - 58px);
+}
+
+/* Checkboxes, footnote and button span both columns */
 #win-newsletter .input-group,
 #win-newsletter .form-group-footnote,
 #win-newsletter .form-group-button { grid-column: 1 / -1; }
