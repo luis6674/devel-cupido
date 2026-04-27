@@ -383,7 +383,6 @@ $(function () {
       } catch (e) {}
     }
     const utilsPoller = setInterval(function () {
-      console.log('Poller started');
       if (!window.intlTelInputUtils) return;
       clearInterval(utilsPoller);
       updatePlaceholder();
