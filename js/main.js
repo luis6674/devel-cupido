@@ -460,6 +460,23 @@ $(function () {
     });
   }
 
+  // Browser tabs
+  $(document).on('click', '.browser-tab', function () {
+    const tab = $(this).data('tab');
+    const $win = $('#win-browser');
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      $win.find('.browser-tab-panel').removeClass('active').hide();
+      $win.find('.browser-content').show();
+    } else {
+      $win.find('.browser-tab').removeClass('active');
+      $(this).addClass('active');
+      $win.find('.browser-content').hide();
+      $win.find('.browser-tab-panel').removeClass('active').hide();
+      $win.find('#browser-tab-' + tab).addClass('active').show();
+    }
+  });
+
   $('#newsletter-open-btn').on('click', function (e) {
     e.preventDefault();
     openWindow('newsletter');
