@@ -258,6 +258,9 @@ html, body {
 .file-item .file-icon { font-size: 18px; }
 .file-meta { margin-left: auto; font-size: 11px; color: var(--text-secondary); }
 
+/* ── Bin photo file entries ── */
+.bin-photo { cursor: pointer; }
+
 /* ── Active music track ── */
 .music-file { cursor: pointer; }
 .music-file.active {

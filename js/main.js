@@ -126,6 +126,14 @@ $(function () {
     $lightbox.addClass('open');
   });
 
+  // Bin photos open in the lightbox individually (no gallery navigation)
+  $(document).on('click', '.bin-photo', function () {
+    lbItems = [{ src: $(this).data('src'), caption: $(this).data('caption') }];
+    lbIndex = 0;
+    lbShow(0);
+    $lightbox.addClass('open');
+  });
+
   $('#lightbox-close, #lightbox').on('click', function (e) {
     if (e.target === this) $lightbox.removeClass('open');
   });
