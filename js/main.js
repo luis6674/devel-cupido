@@ -309,6 +309,41 @@ $(function () {
       date: '20 de abril de 2026',
       preview: 'Parayaaa...',
       body: 'Parayaaa\nNo quiero acabar mal\nLa jodí sin querer   😭\nYo quiero ser tu amor y volverte a tener'
+    },
+    {
+      id: 4,
+      title: 'falafel sin picante',
+      date: '22 de abril de 2026',
+      preview: 'Pizza margherita...',
+      body: 'Pizza margherita x2\ndoner falafel sin cebolla.\nPatatas x3\nsin  bebida'
+    },
+    {
+      id: 5,
+      title: 'feedback rápido sesión 20/2',
+      date: '23 de abril de 2026',
+      preview: 'subir 0.5db...',
+      body: 'subir 0.5db voz en estribillo?? ahora se hunde\nquitar hi-hat en 0:42, sobra groove\nel bajo entra tarde en 1:08 (o soy yo?)\nprobar voz doblada solo en última frase\nno abusar del reverb otra vez pls'
+    },
+    {
+      id: 6,
+      title: 'objetivos',
+      date: '25 de abril de 2026',
+      preview: 'Flechas???...',
+      body: 'Flechas???\nbuscar objetivos.\nhay que tirar bien la flecha para que se les clave.'
+    },
+    {
+      id: 7,
+      title: 'TO DO',
+      date: '26 de abril de 2026',
+      preview: '-Lista de...',
+      body: '-Lista de adelantos.\n-Decidir portada.\n-Poner lavadora d color.\npillar flechasss\n\núltima versión la tiene Dannel??\nPreguntar equipo fechas finales.'
+    },
+    {
+      id: 8,
+      title: '????',
+      date: '28 de abril de 2026',
+      preview: 'Ojalá ser...',
+      body: 'Ojalá ser un pájaro para star siempre en lo alto\nsubirme a tu balcon slo de un saltooooo\ny comerme las migas de tu bocaaaaa(?)'
     }
   ];
 
