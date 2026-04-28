@@ -288,7 +288,7 @@ $(function () {
   });
 
   // ── Notes ──
-  const notes = [
+  var notes = [
     {
       id: 1,
       title: 'Amor ciego',
@@ -346,6 +346,7 @@ $(function () {
       body: 'Ojalá ser un pájaro para star siempre en lo alto\nsubirme a tu balcon slo de un saltooooo\ny comerme las migas de tu bocaaaaa(?)'
     }
   ];
+  notes = notes.reverse();
 
   (function () {
     const $list = $('#notes-list');

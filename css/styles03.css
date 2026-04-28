@@ -255,7 +255,8 @@ html, body {
   color: var(--text-primary);
 }
 .file-item:hover { background: rgba(0,100,255,0.08); }
-.file-item .file-icon { font-size: 18px; }
+.file-item .file-icon { font-size: 18px; max-width: 22px; }
+.file-item .file-icon img { width: 100%; vertical-align: bottom; }
 .file-meta { margin-left: auto; font-size: 11px; color: var(--text-secondary); }
 
 /* ── Bin photo file entries ── */
@@ -540,7 +541,9 @@ html, body {
 }
 .browser-tabs::-webkit-scrollbar { display: none; }
 .browser-tab {
-  padding: 6px 14px;
+  padding: 6px 0px;
+  width: 100px;
+  text-align: center;
   font-size: 11px;
   font-family: 'DM Sans', sans-serif;
   cursor: pointer;
