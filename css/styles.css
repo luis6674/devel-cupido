@@ -529,6 +529,45 @@ html, body {
 }
 .browser-newsletter-btn:hover { transform: scale(1.04); opacity: 0.88; }
 
+/* Browser tabs */
+.browser-tabs {
+  display: flex;
+  background: #d4d4d8;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  overflow-x: auto;
+  flex-shrink: 0;
+  scrollbar-width: none;
+}
+.browser-tabs::-webkit-scrollbar { display: none; }
+.browser-tab {
+  padding: 6px 14px;
+  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  border-right: 1px solid rgba(0,0,0,0.1);
+  white-space: nowrap;
+  background: #c8c8cc;
+  color: #555;
+  user-select: none;
+  transition: background 0.1s;
+}
+.browser-tab:hover { background: #e0e0e4; }
+.browser-tab.active {
+  background: #efefef;
+  color: #1a1a2e;
+  font-weight: 500;
+}
+.browser-tab-panel {
+  display: none;
+  overflow-y: auto;
+  flex: 1;
+}
+.browser-tab-panel.active { display: block; }
+.browser-tab-panel img {
+  width: 100%;
+  display: block;
+}
+
 /* ── Video thumbs inside the picture grid (mixed gallery) ── */
 .picture-grid .video-thumb {
   aspect-ratio: 4/3;
