@@ -378,7 +378,7 @@ html, body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.picture-thumb:hover .pic-label { opacity: 1; }
+.picture-thumb:hover .pic-label { opacity: 0; }
 
 /* ── LIGHTBOX ── */
 #lightbox {
@@ -657,11 +657,7 @@ html, body {
   width: 100%; height: 100%;
   border: none; display: block;
 }
-#yt-caption {
-  color: rgba(255,255,255,0.75);
-  font-size: 13px;
-  letter-spacing: 0.03em;
-}
+#yt-caption { display: none; }
 #yt-close {
   position: absolute;
   top: 20px; right: 24px;
