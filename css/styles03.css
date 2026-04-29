@@ -567,6 +567,40 @@ html, body {
   display: block;
 }
 
+/* ── Popup window ── */
+.popup-body {
+  background: #efefef;
+  padding: 28px 32px 32px;
+  text-align: center;
+}
+.popup-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+}
+.popup-text {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.6;
+}
+#popup-btn {
+  margin-top: 22px;
+  background: #ff3f3f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+#popup-btn:hover { opacity: 0.85; }
+
 /* ── Video thumbs inside the picture grid (mixed gallery) ── */
 .picture-grid .video-thumb {
   aspect-ratio: 4/3;
