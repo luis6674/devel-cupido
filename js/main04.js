@@ -489,19 +489,16 @@ $(function () {
     }
   });
 
-  // Popup: auto-show once after random delay (5–30 s)
-  if (!localStorage.getItem('cupido_popup_shown')) {
-    const delay = (Math.floor(Math.random() * 26) + 5) * 1000;
-    setTimeout(function () {
-      localStorage.setItem('cupido_popup_shown', '1');
-      const $p = $('#win-popup');
-      $p.css({
-        top:  Math.max(60, Math.round((window.innerHeight - 280) / 2)),
-        left: Math.max(20, Math.round((window.innerWidth  - 380) / 2))
-      });
-      openWindow('popup');
-    }, delay);
-  }
+  // Popup: auto-show once per page load after random delay (5–30 s)
+  const delay = (Math.floor(Math.random() * 26) + 5) * 1000;
+  setTimeout(function () {
+    const $p = $('#win-popup');
+    $p.css({
+      top:  Math.max(60, Math.round((window.innerHeight - 280) / 2)),
+      left: Math.max(20, Math.round((window.innerWidth  - 380) / 2))
+    });
+    openWindow('popup');
+  }, delay);
 
   $('#dob_picker').datepicker({
     changeMonth: true,
