@@ -401,11 +401,7 @@ html, body {
   box-shadow: 0 24px 80px rgba(0,0,0,0.6);
   object-fit: contain;
 }
-#lightbox-caption {
-  color: rgba(255,255,255,0.75);
-  font-size: 13px;
-  letter-spacing: 0.03em;
-}
+#lightbox-caption { display: none; }
 #lightbox-close {
   position: absolute;
   top: 20px; right: 24px;
