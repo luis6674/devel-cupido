@@ -463,23 +463,18 @@ $(function () {
 
   // Browser tabs
   $(document).on('click', '.browser-tab', function () {
+    if ($(this).hasClass('active')) return;
     const tab = $(this).data('tab');
     const $win = $('#win-browser');
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
-      $win.find('.browser-tab-panel').removeClass('active').hide();
-      $win.find('.browser-content').show();
-    } else {
-      $win.find('.browser-tab').removeClass('active');
-      $(this).addClass('active');
-      $win.find('.browser-content').hide();
-      $win.find('.browser-tab-panel').removeClass('active').hide();
-      $win.find('#browser-tab-' + tab).addClass('active').show();
-    }
+    $win.find('.browser-tab').removeClass('active');
+    $(this).addClass('active');
+    $win.find('.browser-tab-panel').removeClass('active').hide();
+    $win.find('#browser-tab-' + tab).addClass('active').show();
   });
 
-  $('#newsletter-open-btn').on('click', function (e) {
-    e.preventDefault();
+  // Popup: newsletter trigger button
+  $('#popup-btn').on('click', function () {
+    $('#win-popup').fadeOut(160);
     openWindow('newsletter');
     if (!itiLoaded) {
       itiLoaded = true;
@@ -493,6 +488,20 @@ $(function () {
       document.head.appendChild(s);
     }
   });
+
+  // Popup: auto-show once after random delay (5–30 s)
+  if (!localStorage.getItem('cupido_popup_shown')) {
+    const delay = (Math.floor(Math.random() * 26) + 5) * 1000;
+    setTimeout(function () {
+      localStorage.setItem('cupido_popup_shown', '1');
+      const $p = $('#win-popup');
+      $p.css({
+        top:  Math.max(60, Math.round((window.innerHeight - 280) / 2)),
+        left: Math.max(20, Math.round((window.innerWidth  - 380) / 2))
+      });
+      openWindow('popup');
+    }, delay);
+  }
 
   $('#dob_picker').datepicker({
     changeMonth: true,

@@ -583,7 +583,7 @@
       <div class="browser-address">amorciegocupido.com</div>
     </div>
     <div class="browser-tabs">
-      <div class="browser-tab" data-tab="cdmx">CDMX</div>
+      <div class="browser-tab active" data-tab="cdmx">CDMX</div>
       <div class="browser-tab" data-tab="chicago">Chicago</div>
       <div class="browser-tab" data-tab="coquimbo">Coquimbo</div>
       <div class="browser-tab" data-tab="inglewood">Inglewood</div>
@@ -591,15 +591,7 @@
       <div class="browser-tab" data-tab="comer-tapas">Comer tapas</div>
       <div class="browser-tab" data-tab="fabricar-flecha">Fabricar flecha</div>
     </div>
-    <div class="browser-content">
-      <img src="images/no_connection_heart.png" alt="Sin conexión" class="browser-error-img">
-      <p class="browser-error-title">Sin conexión a Internet</p>
-      <p class="browser-error-body">Comprueba tu conexión Wi-Fi o de datos móviles, o recibe una notificación cuando vuelva la conexión</p>
-      <a href="https://forms.sonymusicfans.com/campaign/cupido-i-sign-up-form-i-2026/" target="_blank" rel="noopener" id="newsletter-open-btn">
-        <img src="images/button_newsletter.png" alt="Apúntate al newsletter" class="browser-newsletter-btn">
-      </a>
-    </div>
-    <div class="browser-tab-panel" id="browser-tab-cdmx">
+    <div class="browser-tab-panel active" id="browser-tab-cdmx">
       <img src="images/Maps_CDMX.jpg" alt="CDMX">
     </div>
     <div class="browser-tab-panel" id="browser-tab-chicago">
@@ -620,6 +612,26 @@
     <div class="browser-tab-panel" id="browser-tab-fabricar-flecha">
       <img src="images/fabricar_flecha.jpg" alt="Fabricar flecha">
     </div>
+  </div>
+</div>
+
+<!-- POPUP -->
+<div class="mac-window" id="win-popup" style="display:none;width:380px;">
+  <div class="window-titlebar">
+    <div class="traffic-lights">
+      <div class="tl tl-close" data-close="win-popup">✕</div>
+      <div class="tl tl-min">−</div>
+      <div class="tl tl-max">+</div>
+    </div>
+    <div class="window-title">Alerta</div>
+    <div class="tl-spacer"></div>
+  </div>
+  <div class="window-body popup-body">
+    <p class="popup-title">ATENCIÓN</p>
+    <p class="popup-text">Parece que tu conexión es demasiado fuerte y podrías recibir un flechazo.</p>
+    <br>
+    <p class="popup-text">¿Quieres continuar navegando?</p>
+    <button id="popup-btn">QUIERO FLECHAZOS</button>
   </div>
 </div>
 
