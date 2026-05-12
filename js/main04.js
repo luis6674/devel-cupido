@@ -35,7 +35,7 @@ $(function () {
 
   // ── Docs lock state ──
   let docsUnlocked = false;
-  const DOCS_PASS = 'cupido';
+  const DOCS_PASS = 'flechazos';
 
   function showDocsLock() {
     $('#docs-password').val('');
