@@ -194,12 +194,18 @@ $(function () {
   $('#docs-lock-newsletter').on('click', function (e) {
     e.preventDefault();
     $('#docs-lock').removeClass('open');
-    const $p = $('#win-popup');
-    $p.css({
-      top:  Math.max(60, Math.round((window.innerHeight - 280) / 2)),
-      left: Math.max(20, Math.round((window.innerWidth  - 380) / 2))
-    });
-    openWindow('popup');
+    openWindow('newsletter');
+    if (!itiLoaded) {
+      itiLoaded = true;
+      $('<link>', {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/css/intlTelInput.min.css'
+      }).appendTo('head');
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/js/intlTelInput.min.js';
+      s.onload = initIti;
+      document.head.appendChild(s);
+    }
   });
   $('#docs-password').on('keydown', function (e) {
     if (e.key === 'Enter')  $('#docs-submit').trigger('click');
