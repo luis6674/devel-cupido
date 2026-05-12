@@ -222,8 +222,8 @@ $(function () {
   const trackList = [];
   let trackIndex = -1;
 
-  // Build track list from DOM
-  $('#music-list .music-file').each(function () {
+  // Build track list from DOM — all music-file elements across the page
+  $('.music-file').each(function () {
     trackList.push({
       src:    $(this).data('src'),
       title:  $(this).data('title'),
