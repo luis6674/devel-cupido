@@ -191,6 +191,16 @@ $(function () {
   $('#docs-cancel').on('click', function () {
     $('#docs-lock').removeClass('open');
   });
+  $('#docs-lock-newsletter').on('click', function (e) {
+    e.preventDefault();
+    $('#docs-lock').removeClass('open');
+    const $p = $('#win-popup');
+    $p.css({
+      top:  Math.max(60, Math.round((window.innerHeight - 280) / 2)),
+      left: Math.max(20, Math.round((window.innerWidth  - 380) / 2))
+    });
+    openWindow('popup');
+  });
   $('#docs-password').on('keydown', function (e) {
     if (e.key === 'Enter')  $('#docs-submit').trigger('click');
     if (e.key === 'Escape') $('#docs-cancel').trigger('click');
