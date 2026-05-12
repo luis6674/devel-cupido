@@ -587,7 +587,11 @@ html, body {
 }
 
 /* ── Popup window ── */
-.popup-body {
+#win-popup {
+  width: 602px;
+  height: 439px;
+}
+/*.popup-body {
   background: #efefef;
   padding: 28px 32px 32px;
   text-align: center;
@@ -603,11 +607,24 @@ html, body {
   font-size: 13px;
   color: #333;
   line-height: 1.6;
+}*/
+.popup-body {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: #000;
+  height: 400px;
+  padding: 0;
+}
+.popup-body img {
+  width: 600px;
+  height: 400px;
 }
 #popup-btn {
-  margin-top: 22px;
-  background: #ff3f3f;
-  color: #fff;
+  margin-top: 0px;
+  background: #45ff42;
+  color: #000;
   border: none;
   border-radius: 8px;
   padding: 10px 22px;
@@ -617,6 +634,9 @@ html, body {
   letter-spacing: 0.06em;
   cursor: pointer;
   transition: opacity 0.15s;
+  position: absolute;
+  left: calc(50% - 57px);
+  top: calc(50% + 150px);
 }
 #popup-btn:hover { opacity: 0.85; }
 
@@ -1234,6 +1254,20 @@ font-size: 26px;
     height: auto !important;
   }
 
+  /* Popup window */
+  #win-popup {
+    height: calc((100vw * 0.667) + 39px) !important;
+  }
+  .popup-body img {
+    width: 100%;
+    height: auto;
+  }
+  #popup-btn {
+    padding: 6px 12px;
+    left: unset;
+    top: 84%;
+    border-radius: 6px;
+  }
   /* Grids: 2 columns on mobile */
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
