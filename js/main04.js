@@ -344,6 +344,41 @@ $(function () {
       date: '28 de abril de 2026',
       preview: 'Ojalá ser...',
       body: 'Ojalá ser un pájaro para star siempre en lo alto\nsubirme a tu balcon slo de un saltooooo\ny comerme las migas de tu bocaaaaa(?)'
+    },
+    {
+      id: 9,
+      title: 'estribillo',
+      date: '30 de abril de 2026',
+      preview: 'Tú, no tienes...',
+      body: 'Tú, no tienes mi corazón pero te llevaste un trozo.\nA mi me encantaba refrescarme en tus ojos.\nTú te irás igual.'
+    },
+    {
+      id: 10,
+      title: 'feedback videoclip mayo',
+      date: '3 de mayo de 2026',
+      preview: 'ver la moneda...',
+      body: 'ver la moneda más grande cuando gira.\nenseñar más la parte psicodélica.\ncambiar el texto por "cómeme el coño" y que esté censurado\nel color está increíble.\npasar  master final antes del viernes'
+    },
+    {
+      id: 11,
+      title: 'NO OLVIDAR!!',
+      date: '5 de mayo de 2026',
+      preview: 'exportar versión...',
+      body: 'exportar versión sin master para probar en coche\nsubir kick o bajar todo lo demás (decidir ya)\nautomatizar delay solo en última palabra'
+    },
+    {
+      id: 12,
+      title: 'pedido viernes',
+      date: '8 de mayo de 2026',
+      preview: 'rollitos x3...',
+      body: 'rollitos x3\npatatas con cheddar\ncocacola x3\nmayo veggie roll\nhummus x2'
+    },
+    {
+      id: 13,
+      title: 'apuntes última versión',
+      date: '12 de mayo de 2026',
+      preview: '**** ag****...',
+      body: '**** ag****\n1:57min En la parte del puente meter un solo o unas voces o algo o subir lo q hay. El sinte. O que la guitarra arpegiada se vaya reverberando en una bola que se vaya cuando rompa el cambio en el 2:11\n\n-Automatizar el bajo. a veces se dispara un poco de volumen ej: 1:34min'
     }
   ];
   notes = notes.reverse();
