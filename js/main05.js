@@ -5,25 +5,30 @@ $(function () {
 
   function isMobile() { return window.innerWidth < MOBILE_BP; }
 
-  // ── Make all windows draggable + resizable ──
+  // ── Make all windows draggable + resizable (popup is draggable only) ──
   $('.mac-window').each(function () {
     $(this).draggable({
       handle: '.window-titlebar',
       containment: 'body',
       start: function () { bringToFront($(this)); }
-    }).resizable({
-      handles: 'se, s, e',
-      minWidth: 280,
-      minHeight: 160
     });
+    if (!$(this).is('#win-popup')) {
+      $(this).resizable({
+        handles: 'se, s, e',
+        minWidth: 280,
+        minHeight: 160
+      });
+    }
   });
-  $('#win-popup').resizable('destroy');
 
+  const $resizableWindows = $('.mac-window').not('#win-popup');
   function applyMobileState() {
     if (isMobile()) {
-      $('.mac-window').draggable('disable').resizable('disable');
+      $('.mac-window').draggable('disable');
+      $resizableWindows.resizable('disable');
     } else {
-      $('.mac-window').draggable('enable').resizable('enable');
+      $('.mac-window').draggable('enable');
+      $resizableWindows.resizable('enable');
     }
   }
   applyMobileState();
