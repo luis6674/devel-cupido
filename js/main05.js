@@ -17,6 +17,7 @@ $(function () {
       minHeight: 160
     });
   });
+  $('#win-popup').resizable('destroy');
 
   function applyMobileState() {
     if (isMobile()) {
