@@ -15,8 +15,8 @@
 }
 
 html, body {
-  width: 100%; height: 100%;
-  overflow: hidden;
+  width: 100%;
+  overflow-x: hidden;
   font-family: 'DM Sans', sans-serif;
 }
 
@@ -38,6 +38,8 @@ html, body {
 
 /* ── MENUBAR ── */
 #menubar {
+  position: sticky;
+  top: 0;
   height: 28px;
   background: rgba(20,20,30,0.65);
   backdrop-filter: blur(20px) saturate(1.8);
@@ -1139,18 +1141,10 @@ font-size: 26px;
 
 /* ── LEGAL FOOTER ── */
 #footer {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 99998;
-  background: rgba(15,15,22,0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15,15,22,0.97);
   border-top: 1px solid rgba(255,255,255,0.1);
-  transform: translateY(100%);
-  transition: transform 0.25s ease;
-  padding: 10px 20px;
+  padding: 16px 20px;
 }
-#footer.open { transform: translateY(0); }
 #copyright {
   font-size: 10.5px;
   color: rgba(255,255,255,0.85);
@@ -1163,19 +1157,6 @@ font-size: 26px;
 }
 #copyright a:hover { color: rgba(255,255,255,0.85); text-decoration: underline; }
 
-#footer-toggle {
-  background: none;
-  border: none;
-  color: rgba(255,255,255,0.65);
-  font-size: 13px;
-  cursor: pointer;
-  padding: 2px 4px;
-  border-radius: 4px;
-  line-height: 1;
-  transition: color 0.15s, background 0.15s;
-  font-family: inherit;
-}
-#footer-toggle:hover { color: #fff; background: rgba(255,255,255,0.12); }
 
 /* ── jQuery UI overrides ── */
 .ui-resizable-handle { background: transparent; }

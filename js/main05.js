@@ -642,17 +642,6 @@ $(function () {
     });
   });
 
-  // ── Legal footer toggle ──
-  $('#footer-toggle').on('click', function (e) {
-    e.stopPropagation();
-    $('#footer').toggleClass('open');
-  });
-  $(document).on('click', function (e) {
-    if ($('#footer').hasClass('open') && !$(e.target).closest('#footer, #footer-toggle').length) {
-      $('#footer').removeClass('open');
-    }
-  });
-
   // ── Gallery tabs ──
   $(document).on('click', '.gallery-tab', function () {
     const tab = $(this).data('tab');
