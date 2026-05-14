@@ -39,7 +39,7 @@ html, body {
 /* ── MENUBAR ── */
 #menubar {
   height: 28px;
-  background: rgba(20,20,30,0.45);
+  background: rgba(20,20,30,0.65);
   backdrop-filter: blur(20px) saturate(1.8);
   -webkit-backdrop-filter: blur(20px) saturate(1.8);
   border-bottom: 1px solid rgba(255,255,255,0.12);
@@ -1153,12 +1153,12 @@ font-size: 26px;
 #footer.open { transform: translateY(0); }
 #copyright {
   font-size: 10.5px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.85);
   text-align: center;
   line-height: 1.8;
 }
 #copyright a {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
 }
 #copyright a:hover { color: rgba(255,255,255,0.85); text-decoration: underline; }
