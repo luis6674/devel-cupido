@@ -591,6 +591,8 @@ html, body {
 /* ── Popup window ── */
 #win-popup {
   width: 360px;
+  height: auto;
+  min-height: unset;
 }
 .popup-body {
   padding: 0;
@@ -1140,6 +1142,11 @@ font-size: 26px;
   .mac-window {
     width: clamp(320px, 70vw, 600px);
     height: clamp(260px, 52vh, 500px);
+  }
+  #win-popup {
+    width: clamp(260px, 80vw, 360px);
+    height: auto;
+    min-height: unset;
   }
   #win-audioplayer {
     width: clamp(260px, 38vw, 320px);
