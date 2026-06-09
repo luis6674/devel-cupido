@@ -590,41 +590,21 @@ html, body {
 
 /* ── Popup window ── */
 #win-popup {
-  width: 320px;
+  width: 360px;
 }
 .popup-body {
-  background: #1a1a2e;
-  padding: 32px 28px 36px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
+  padding: 0;
+  overflow: hidden;
+  line-height: 0;
 }
-.popup-calling {
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 0.03em;
-  margin: 0;
-}
-#popup-phone {
-  display: inline-block;
+#popup-link {
+  display: block;
   cursor: pointer;
 }
-#popup-phone img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  animation: phone-ring 1s ease-in-out infinite;
-}
-@keyframes phone-ring {
-  0%, 100% { transform: rotate(0deg); }
-  15%       { transform: rotate(15deg); }
-  30%       { transform: rotate(-15deg); }
-  45%       { transform: rotate(10deg); }
-  60%       { transform: rotate(-10deg); }
-  75%       { transform: rotate(5deg); }
+#popup-link img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ── Video thumbs inside the picture grid (mixed gallery) ── */

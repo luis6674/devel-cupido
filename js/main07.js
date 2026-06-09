@@ -529,18 +529,18 @@ $(function () {
     $win.find('#browser-tab-' + tab).addClass('active').show();
   });
 
-  // Popup: answer the call — link handled by <a href> on the image, just close the window
-  $('#popup-phone').on('click', function () {
+  // Popup: close when image link is clicked (link opens in new tab naturally)
+  $('#popup-link').on('click', function () {
     $('#win-popup').fadeOut(160);
   });
 
-  // Popup: auto-show once per page load after random delay (5–30 s)
-  const delay = 10000;
+  // Popup: auto-show once per page load after 6 s
+  const delay = 6000;
   setTimeout(function () {
     const $p = $('#win-popup');
     $p.css({
-      top:  Math.max(60, Math.round((window.innerHeight - 220) / 2)),
-      left: Math.max(20, Math.round((window.innerWidth  - 320) / 2))
+      top:  Math.max(60, Math.round((window.innerHeight - 630) / 2)),
+      left: Math.max(20, Math.round((window.innerWidth  - 360) / 2))
     });
     openWindow('popup');
   }, delay);
