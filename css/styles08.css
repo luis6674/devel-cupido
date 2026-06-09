@@ -590,9 +590,10 @@ html, body {
 
 /* ── Popup window ── */
 #win-popup {
-  width: 360px;
+  width: auto;
   height: auto;
   min-height: unset;
+  min-width: unset;
 }
 .popup-body {
   padding: 0;
@@ -604,9 +605,11 @@ html, body {
   cursor: pointer;
 }
 #popup-link img {
-  width: 100%;
-  height: auto;
   display: block;
+  width: auto;
+  max-width: min(360px, 90vw);
+  height: auto;
+  max-height: calc(100vh - 178px); /* viewport minus titlebar ~28px + top/bottom clearance ~150px */
 }
 
 /* ── Video thumbs inside the picture grid (mixed gallery) ── */
@@ -1142,11 +1145,6 @@ font-size: 26px;
   .mac-window {
     width: clamp(320px, 70vw, 600px);
     height: clamp(260px, 52vh, 500px);
-  }
-  #win-popup {
-    width: clamp(260px, 80vw, 360px);
-    height: auto;
-    min-height: unset;
   }
   #win-audioplayer {
     width: clamp(260px, 38vw, 320px);
