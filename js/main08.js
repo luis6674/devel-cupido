@@ -538,9 +538,12 @@ $(function () {
   const delay = 6000;
   setTimeout(function () {
     const $p = $('#win-popup');
+    const popupW = Math.min(360, window.innerWidth  * 0.9);
+    const imgH   = Math.min(popupW * 800 / 479, window.innerHeight - 178);
+    const popupH = imgH + 28; // image height + titlebar
     $p.css({
-      top:  Math.max(60, Math.round((window.innerHeight - 630) / 2)),
-      left: Math.max(20, Math.round((window.innerWidth  - 360) / 2))
+      top:  Math.max(60, Math.round((window.innerHeight - popupH) / 2)),
+      left: Math.max(20, Math.round((window.innerWidth  - popupW) / 2))
     });
     openWindow('popup');
   }, delay);
