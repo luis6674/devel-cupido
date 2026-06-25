@@ -588,30 +588,6 @@ html, body {
   display: block;
 }
 
-/* ── Popup window ── */
-#win-popup {
-  width: auto;
-  height: auto;
-  min-height: unset;
-  min-width: unset;
-}
-.popup-body {
-  padding: 0;
-  overflow: hidden;
-  line-height: 0;
-}
-#popup-link {
-  display: block;
-  cursor: pointer;
-}
-#popup-link img {
-  display: block;
-  width: auto;
-  max-width: min(360px, 90vw);
-  height: auto;
-  max-height: calc(100vh - 178px); /* viewport minus titlebar ~28px + top/bottom clearance ~150px */
-}
-
 /* ── Video thumbs inside the picture grid (mixed gallery) ── */
 .picture-grid .video-thumb {
   aspect-ratio: 4/3;
