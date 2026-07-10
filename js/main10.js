@@ -741,8 +741,8 @@ $(function () {
     }
   });
 
-  // Secret hash: open concerts window when URL ends in #flechazo
-  if (window.location.hash === '#flechazo') {
+  // Early-access concerts: open when URL contains MD5("conciertos")
+  if (window.location.search.includes('7e0b74be35635441ec46edbcee5baff4')) {
     openWindow('concerts');
   }
 
