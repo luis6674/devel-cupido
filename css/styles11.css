@@ -1218,8 +1218,8 @@ font-size: 26px;
   font-size: 13px;
 }
 .concerts-table th {
-  background: rgba(0,0,0,0.25);
-  color: #999;
+  background: #4393df;
+  color: #FFF;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
