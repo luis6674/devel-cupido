@@ -1234,6 +1234,7 @@ font-size: 26px;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   white-space: nowrap;
 }
+.concerts-table tbody tr:nth-child(even) { background: #d1d5d9; }
 .concerts-table tbody tr:last-child td { border-bottom: none; }
 .concerts-table tbody tr:hover td { background: rgba(255,255,255,0.03); }
 .concert-soon {
@@ -1252,7 +1253,7 @@ font-size: 26px;
   letter-spacing: 0.04em;
   transition: opacity 0.15s;
 }
-.concert-tickets:hover { opacity: 0.82; }
+.concert-tickets:hover { opacity: 0.42; }
 
 @media (max-width: 620px) {
   .concerts-table th {
