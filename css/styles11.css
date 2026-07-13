@@ -1253,7 +1253,7 @@ font-size: 26px;
   letter-spacing: 0.04em;
   transition: opacity 0.15s;
 }
-.concert-tickets:hover { opacity: 0.42; }
+.concert-tickets:hover { opacity: 0.92; }
 
 @media (max-width: 620px) {
   .concerts-table th {
