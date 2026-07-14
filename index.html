@@ -31,7 +31,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles11.css"/>
+  <link rel="stylesheet" href="css/styles12.css"/>
 
 </head>
 <body>
@@ -756,7 +756,7 @@
 </div>
 
 <!-- CONCERTS (hidden; opened via #flechazo hash or future desktop icon) -->
-<div class="mac-window" id="win-concerts" style="display:none;top:80px;left:140px;width:680px;">
+<div class="mac-window" id="win-concerts" style="display:none;top:80px;left:140px;">
   <div class="window-titlebar">
     <div class="traffic-lights">
       <div class="tl tl-close" data-close="win-concerts">✕</div>
@@ -766,7 +766,12 @@
     <div class="window-title">Gira</div>
     <div class="tl-spacer"></div>
   </div>
-  <div class="window-body concerts-body">
+  <div class="window-body" style="padding:0;display:flex;flex-direction:column;">
+    <div class="browser-bar">
+      <div class="browser-address">amorciegocupido.com/gira</div>
+    </div>
+    <div class="concerts-layout">
+    <div class="concerts-list">
     <table class="concerts-table">
       <thead>
         <tr>
@@ -815,6 +820,11 @@
         </tr>
       </tbody>
     </table>
+    </div>
+    <div class="concerts-map">
+      <iframe data-src="https://www.google.com/maps/d/u/0/embed?mid=1WLupNHSBaEL1OzYbBuvz0QZZoj_6HoQ&ehbc=2E312F" title="Mapa de la gira" loading="lazy" allowfullscreen></iframe>
+    </div>
+    </div>
   </div>
 </div>
 
@@ -850,6 +860,6 @@
 </div>
 
 <!-- Scripts -->
-<script src="js/main11.js"></script>
+<script src="js/main12.js"></script>
 </body>
 </html>
