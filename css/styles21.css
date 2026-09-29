@@ -1115,7 +1115,7 @@ font-size: 26px;
 
 /*----- ENCUESTA (Vol II pop-up) -----*/
 #win-survey {
-  width: min(260px, 92vw);
+  width: min(440px, 92vw);
   height: auto;
   min-width: unset;
   min-height: unset;
@@ -1128,6 +1128,13 @@ font-size: 26px;
   overflow-y: auto;
 }
 #survey_form_container { height: 100%; }
+
+@media (min-width: 1080px) and (max-height: 660px) {
+  #win-survey {
+    width: min(280px, 92vw);
+    overflow-y: auto;
+  }
+}
 
 /* ── LEGAL FOOTER ── */
 #footer {
