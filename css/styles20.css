@@ -1115,7 +1115,7 @@ font-size: 26px;
 
 /*----- ENCUESTA (Vol II pop-up) -----*/
 #win-survey {
-  width: min(300px, 92vw);
+  width: min(260px, 92vw);
   height: auto;
   min-height: unset;
   max-height: calc(100vh - 100px);
