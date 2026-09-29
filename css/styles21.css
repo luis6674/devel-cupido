@@ -1117,6 +1117,7 @@ font-size: 26px;
 #win-survey {
   width: min(260px, 92vw);
   height: auto;
+  min-width: unset;
   min-height: unset;
   max-height: calc(100vh - 100px);
 }
