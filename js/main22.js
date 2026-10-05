@@ -193,9 +193,51 @@ $(function () {
   const $ytEmbed  = $('#yt-embed');
   const $ytCap    = $('#yt-caption');
 
+  // YouTube sets targeting cookies, so the embed is only loaded once the visitor
+  // has accepted OneTrust's targeting category (C0004); until then an overlay is shown.
+  let ytPendingVid = null;
+  let ytConsentTimer = null;
+
+  function hasTargetingConsent() {
+    return typeof OnetrustActiveGroups !== 'undefined' && OnetrustActiveGroups.indexOf('C0004') !== -1;
+  }
+
+  function ytStopWatchingConsent() {
+    ytPendingVid = null;
+    clearInterval(ytConsentTimer);
+    ytConsentTimer = null;
+  }
+
+  function ytRenderEmbed(vid) {
+    ytStopWatchingConsent();
+    $ytEmbed.html('<iframe src="https://www.youtube.com/embed/' + vid + '?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+  }
+
+  function ytRenderConsentLayer(vid) {
+    const $layer = $('<div class="video-cookie-layer" role="dialog" aria-label="Es necesario aceptar las cookies para ver el vídeo"></div>');
+    const $text = $('<p class="consent-text"></p>').text('Para ver este contenido es necesario aceptar las cookies de segmentación, que pueden compartir datos con terceros. Acepta las cookies para continuar.');
+    const $btn = $('<button type="button" class="consent-btn"></button>').text('Aceptar cookies').on('click', function () {
+      if (typeof OneTrust !== 'undefined') OneTrust.UpdateConsent('Category', 'C0004:1');
+    });
+    const $link = $('<a class="consent-link" target="_blank" rel="noopener noreferrer"></a>')
+      .attr('href', 'https://www.youtube.com/watch?v=' + encodeURIComponent(vid))
+      .text('Ver en YouTube');
+    $ytEmbed.empty().append($layer.append($text, $btn, $link));
+
+    ytStopWatchingConsent();
+    ytPendingVid = vid;
+    ytConsentTimer = setInterval(ytCheckConsent, 1000);
+  }
+
+  function ytCheckConsent() {
+    if (ytPendingVid && $ytViewer.hasClass('open') && hasTargetingConsent()) ytRenderEmbed(ytPendingVid);
+  }
+  window.addEventListener('OneTrustGroupsUpdated', ytCheckConsent);
+
   function ytClose() {
     const localVid = $ytEmbed.find('video')[0];
     if (localVid) localVid.pause();
+    ytStopWatchingConsent();
     $ytEmbed.empty();
     $ytViewer.removeClass('open');
   }
@@ -207,7 +249,8 @@ $(function () {
       $ytEmbed.html('<video src="' + localSrc + '" controls autoplay playsinline style="width:100%;height:100%;display:block;background:#000;"></video>');
     } else {
       const vid = $(this).data('vid');
-      $ytEmbed.html('<iframe src="https://www.youtube.com/embed/' + vid + '?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+      if (hasTargetingConsent()) ytRenderEmbed(vid);
+      else ytRenderConsentLayer(vid);
     }
     $ytCap.text(cap);
     $ytViewer.addClass('open');
