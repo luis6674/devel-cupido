@@ -31,7 +31,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=202610051520"/>
+  <link rel="stylesheet" href="css/styles.css?v=202610191056"/>
 
 </head>
 <body>
@@ -92,10 +92,6 @@
     <div class="desktop-icon" data-window="concerts">
       <div class="icon-img"><img src="images/icons/icon_maps.png" alt="Tour"></div>
       <div class="icon-label">Tour</div>
-    </div>
-    <div class="desktop-icon" data-window="survey">
-      <div class="icon-img"><img src="images/icons/encuesta.png" alt="Encuesta"></div>
-      <div class="icon-label">Encuesta</div>
     </div>
   </div>
 
@@ -871,51 +867,6 @@
   </div>
 </div>
 
-<!-- ENCUESTA (Vol II pop-up) -->
-<div class="mac-window" id="win-survey" style="top:60px;left:12vw;">
-  <div class="window-titlebar">
-    <div class="traffic-lights">
-      <div class="tl tl-close" data-close="win-survey">✕</div>
-      <div class="tl tl-min">−</div>
-      <div class="tl tl-max">+</div>
-    </div>
-    <div class="window-title">Encuesta</div>
-    <div class="tl-spacer"></div>
-  </div>
-  <div class="window-body">
-    <div id="survey_form_container">
-    <img class="survey-img" data-src="images/encuesta.jpg" alt="Encuesta">
-    <form id="survey-form" class="needs-validation" novalidate>
-      <input id="survey_js_url" name="js_url" type="hidden" value="https://subs.sonymusicfans.com/submit" />
-      <input name="form" type="hidden" value="795388" />
-      <div class="form-group">
-        <input id="survey_field_email_address" class="form-control" name="field_email_address" type="email" maxlength="60" placeholder="Email *" required>
-        <div class="invalid-feedback">Debes proporcionar un email válido</div>
-      </div>
-      <div class="form-group">
-        <label for="custom_field[Custom_Field_1]">¿Con cuál de nuestros colaboradores te gustaría volver a vernos?</label>
-        <textarea class="form-control" rows="3" id="custom_field[Custom_Field_1]" name="custom_field[Custom_Field_1]"></textarea>
-      </div>
-      <input type="checkbox" name="triggered_sends[]" id="survey_confirmation_email" class="display-none" checked="checked" value="">
-      <div class="input-group" style="margin-top: 15px;">
-        <div class="checkbox">
-          <input type="checkbox" id="survey_consent" required>
-          <p>He leído y acepto la <a href="https://www.sonymusic.es/politica-de-privacidad-y-cookies/" target="_blank">Política de Privacidad</a>. *</p>
-          <div class="invalid-feedback">Debes marcar la casilla para aceptar</div>
-        </div>
-      </div>
-      <div class="form-group form-group-footnote">* Denota un campo requerido</div>
-      <div class="form-group form-group-button">
-        <button class="btn btn-primary" type="submit">Enviar</button>
-      </div>
-    </form>
-    </div>
-    <div id="survey_form_response">
-      <div class="newsletter-response-content">¡Gracias por tu respuesta!</div>
-    </div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <div id="footer">
   <div id="copyright">
@@ -925,6 +876,6 @@
 </div>
 
 <!-- Scripts -->
-<script src="js/main.js?v=202610051520"></script>
+<script src="js/main.js?v=202610191056"></script>
 </body>
 </html>

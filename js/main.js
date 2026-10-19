@@ -693,53 +693,6 @@ $(function () {
     });
   });
 
-  // ── Encuesta (Vol II pop-up) form ──
-  $('#survey-form').on('submit', function (e) {
-    e.preventDefault();
-    const form = this;
-    let valid = true;
-
-    // Sanitise text inputs
-    $(form).find('input[type="text"], input[type="email"], textarea').val(function (_, v) {
-      return $.trim(v.replace(/(<([^>]+)>)/gi, ''));
-    });
-
-    $(form).find('.is-invalid').removeClass('is-invalid');
-    function fail($el) { $el.addClass('is-invalid'); valid = false; }
-
-    // Email — valid format, only required field besides consent
-    const $email = $('#survey_field_email_address');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test($email.val())) fail($email);
-
-    // Mandatory consent checkbox
-    const $consent = $(form).find('input[type="checkbox"][required]');
-    if (!$consent.is(':checked')) fail($consent);
-
-    if (!valid) return;
-
-    var data = $(form).serialize();
-    $.ajax({
-      type: 'POST',
-      url: 'https://subs.sonymusicfans.com/submit',
-      dataType: 'json',
-      data: data,
-      xhrFields: { withCredentials: false },
-      success: function () {
-        $('#survey_form_container').fadeOut(function () {
-          $('#survey_form_response').fadeIn();
-        });
-      },
-      error: function () {
-        alert('Ha ocurrido un error. Por favor, inténtalo más tarde.');
-      }
-    });
-  });
-
-  // Encuesta pop-up: auto-show once per page load
-  setTimeout(function () {
-    openWindow('survey');
-  }, 2500);
-
   // ── Gallery tabs ──
   $(document).on('click', '.gallery-tab', function () {
     const tab = $(this).data('tab');
